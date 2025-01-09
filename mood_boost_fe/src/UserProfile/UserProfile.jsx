@@ -1,6 +1,5 @@
-import React from "react";
-import "./UserProfile.css"
-import { Link } from 'react-router-dom'
+import "./UserProfile.css";
+import { Link } from 'react-router-dom';
 
 function UserProfile() {
   return (
@@ -10,4 +9,4 @@ function UserProfile() {
   )
 }
 
-export default UserProfile
+export default UserProfile;

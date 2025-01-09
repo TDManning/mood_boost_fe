@@ -1,6 +1,5 @@
-import React from "react";
-import './JokePage.css'
-import { Link } from 'react-router-dom'
+import './JokePage.css';
+import { Link } from 'react-router-dom';
 
 function JokePage() {
   return (
@@ -10,4 +9,4 @@ function JokePage() {
   )
 }
 
-export default JokePage
+export default JokePage;

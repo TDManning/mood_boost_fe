@@ -1,6 +1,5 @@
-import React from "react";
-import "./SpinnerWheel.css"
-import { Link } from 'react-router-dom'
+import "./SpinnerWheel.css";
+import { Link } from 'react-router-dom';
 
 function SpinnerWheel() {
   return (
@@ -10,4 +9,4 @@ function SpinnerWheel() {
   )
 }
 
-export default SpinnerWheel
+export default SpinnerWheel;
