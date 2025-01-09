@@ -1,14 +1,18 @@
+import homebtn from "../icons/homebtn"
 import "./NavBar.css";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 function NavBar () {
     return (
         <nav>
+            <NavLink to="/" className="home">
+                <img className="homebtn" src={ homebtn } alt="Back to home page" />
+            </NavLink>
             <ul>
-                <li><Link ></Link></li>
-                <li><Link ></Link></li>
-                <li><Link ></Link></li>
+                <li><NavLink ></NavLink></li>
+                <li><NavLink ></NavLink></li>
+                <li><NavLink ></NavLink></li>
             </ul>
         </nav>
         
