@@ -1,6 +1,5 @@
-import React from "react";
-import "./QuotePage.css"
-import { Link } from 'react-router-dom'
+import "./QuotePage.css";
+import { Link } from 'react-router-dom';
 
 function QuotePage() {
   return (
@@ -10,4 +9,4 @@ function QuotePage() {
   )
 }
 
-export default QuotePage
+export default QuotePage;

@@ -1,5 +1,5 @@
-import React from "react";
 import "./BreathingPage.css";
+
 
 function BreathingPage() {
   return (
