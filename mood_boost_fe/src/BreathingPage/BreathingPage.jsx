@@ -1,6 +1,7 @@
 import React from "react";
 import "./BreathingPage.css";
 
+
 function BreathingPage() {
   return (
     <div className="breathing-page">

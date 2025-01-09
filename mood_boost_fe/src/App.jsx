@@ -7,7 +7,9 @@ import { JokePage } from './JokePage/JokePage'
 import { BreathingPage } from './BreathingPage/BreathingPage'
 
 function App() {
-
+  return (
+    <div>We have no errors</div>
+  )
 }
 
 export default App;

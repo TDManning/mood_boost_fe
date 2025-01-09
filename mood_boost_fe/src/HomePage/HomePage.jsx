@@ -7,7 +7,7 @@ function HomePage() {
       <div className="home-page">
         <h1>Welcome to MoodBoost</h1>
         <p>Spin the wheel or use the menu to navigate to different pages</p>
-        <SpinnerWheel />
+        {/* <SpinnerWheel /> */}
       </div>
   )
 }
