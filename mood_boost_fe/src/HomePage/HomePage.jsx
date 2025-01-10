@@ -1,12 +1,25 @@
 import "./HomePage.css";
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { Wheel } from "react-spinning-wheel";
+import "react-spinning-wheel/dist/style.css";
+
 
 function HomePage() {
-  const handleSpin = () => {
-    const pages = ["Inspiring Quote", "Breathing Exercise", "Joke"];
-    const result = pages[Math.floor(Math.random() * pages.length)];
-    alert('You got : ${result}'); //temporary
-  };
+  const navigate = useNavigate()
+console.log(Wheel)
+  const pages = [
+    { id: 1, label: "Inspiring Quote", route: "/quote" },
+    { id: 2, label: "Breathing Exercise", route: "/breathing" },
+    { id: 3, label: "Joke Generator", route: "/joke" },
+  ]
+
+  const handleSpinResult = (resultLabel) => {
+    const result = pages.find((page) => page.label === resultLabel)
+    if (result) {
+      navigate(result.route);
+    }
+  }
   return (
     <div className="home-page">
       <h1>Welcome to MoodBoost</h1>
@@ -15,9 +28,10 @@ function HomePage() {
       </h2>
       <p>Spin the wheel or use the menu to navigate to different pages</p>
       <section className="spinner-container">
-        <div className="spinner-wheel" onClick={handleSpin}>
-          <p>🎡 Spin Me!</p>
-        </div>
+        <Wheel
+        data={pages.map((page) => page.label)}
+        onStopSpinning={handleSpinResult}
+        />
       </section>
     </div>
   )
