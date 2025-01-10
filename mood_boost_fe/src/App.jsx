@@ -1,15 +1,15 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
-import { NavBar } from './NavBar/NavBar';
-import { QuotePage } from './QuotePage/QuotePage';
-import { JokePage } from './JokePage/JokePage';
-import { BreathingPage } from './BreathingPage/BreathingPage';
+import NavBar from './NavBar/NavBar';
+import QuotePage from './QuotePage/QuotePage';
+import JokePage from './JokePage/JokePage';
+import BreathingPage from './BreathingPage/BreathingPage';
 import HomePage from './HomePage/HomePage';
 
 function App() {
   return (
     <>
-      {/* Navigation bar */}
+      < NavBar />
       {/* <NavBar /> */}
       <Routes>
         {/* Define HomePage as the landing page */}
