@@ -13,6 +13,9 @@ ul li:hover .dropdown {
 
 .navbar {
   display: flex;
+  align-items: center;
+  background: radial-gradient(circle, #ffb84d, #ff9900, #ff5724, #f44034, #e92063);
+  height: 100px;
 }
 
 .dropdown {
@@ -21,4 +24,6 @@ ul li:hover .dropdown {
 
 .login {
   margin-left: auto;
+  height: 40px;
+  border-radius: 10px;
 }
