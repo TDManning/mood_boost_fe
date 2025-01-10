@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       < NavBar />
+      <div className="page-content">
       {/* <NavBar /> */}
       <Routes>
         {/* Define HomePage as the landing page */}
@@ -18,8 +19,7 @@ function App() {
         <Route path="/joke" element={<JokePage />} />
         <Route path="/breathing" element={<BreathingPage />} />
       </Routes>
-
-      {/* <div>We have no errors</div> */}
+      </div>
     </>
   );
 }

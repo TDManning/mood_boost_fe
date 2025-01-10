@@ -1,0 +1,107 @@
+.modal {
+  background-color: #e92063;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 50vh;
+  width: 35vw;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  max-height: 600px;
+  border-radius: 20px;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+.close-modal {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.user-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.password-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+::placeholder {
+  color: #e92063;
+}
+
+input:hover, input:focus {
+  outline: none;
+  border: 2px solid #ffffff
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.need-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.need-account button, .login-submit {
+  margin-top: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #e92063;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90vw;
+    height: auto;
+  }
+  input {
+    width: 90%;
+  }
+}

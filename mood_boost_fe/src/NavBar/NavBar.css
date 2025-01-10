@@ -27,3 +27,7 @@ ul li:hover .dropdown {
   height: 40px;
   border-radius: 10px;
 }
+
+.page-content.blur {
+  filter: blur(5px);
+}
