@@ -19,7 +19,7 @@ function App() {
         <Route path="/breathing" element={<BreathingPage />} />
       </Routes>
 
-      <div>We have no errors</div>
+      {/* <div>We have no errors</div> */}
     </>
   );
 }
