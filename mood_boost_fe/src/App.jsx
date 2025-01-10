@@ -14,9 +14,9 @@ function App() {
       <Routes>
         {/* Define HomePage as the landing page */}
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/quote" element={<QuotePage />} />
+        <Route path="/quote" element={<QuotePage />} />
         <Route path="/joke" element={<JokePage />} />
-        <Route path="/breathing" element={<BreathingPage />} /> */}
+        <Route path="/breathing" element={<BreathingPage />} />
       </Routes>
 
       <div>We have no errors</div>
