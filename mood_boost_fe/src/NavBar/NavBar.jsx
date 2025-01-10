@@ -16,9 +16,9 @@ function NavBar () {
             <ul>
                 <li>Mood Boosts
                     <ul className="dropdown">
-                        <li><NavLink to="/breathing" element={ BreathingPage }>Breathing Exercies</NavLink></li>
-                        <li><NavLink to="/quote" element={ QuotePage }>Inspirational Quotes</NavLink></li>
-                        <li><NavLink to="/joke" element={ JokePage }>Joke Generator</NavLink></li>
+                        <li><NavLink to="/breathing" element={ BreathingPage } className="boost">Breathing Exercies</NavLink></li>
+                        <li><NavLink to="/quote" element={ QuotePage } className="boost">Inspirational Quotes</NavLink></li>
+                        <li><NavLink to="/joke" element={ JokePage } className="boost">Joke Generator</NavLink></li>
                     </ul>
                 </li>    
             </ul>
