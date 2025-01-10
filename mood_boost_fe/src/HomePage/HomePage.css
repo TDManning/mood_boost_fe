@@ -1,42 +1,53 @@
 .home-page {
-  text-align: center;
-  padding: 1rem;
-}
-
-.content {
-  padding: 2rem;
-}
-
-.spinner-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.basic-spinner {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #4caf50; 
+  border-top: 5px solid #ffffff; 
+  animation: spin 2s linear infinite; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  cursor: pointer;
   margin-top: 2rem;
 }
 
-.spinner-wheel {
-  width: 200px;
-  height: 200px;
-  border: 5px solid #4caf50;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
+.basic-spinner p {
+  font-size: 1rem;
+  color: #4caf50;
   font-weight: bold;
-  cursor: pointer;
-  animation: spin-animation 5s linear infinite;
+  margin: 0;
 }
 
-.spinner-wheel:hover {
-  background-color: #f0f0f0;
-}
-
-/* @keyframes spin-animation {
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-} */
+}
+

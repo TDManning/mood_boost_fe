@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar/NavBar';
 import QuotePage from './QuotePage/QuotePage';
 import JokePage from './JokePage/JokePage';
