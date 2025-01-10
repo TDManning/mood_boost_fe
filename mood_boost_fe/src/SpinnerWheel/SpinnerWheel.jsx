@@ -1,5 +1,6 @@
 import "./SpinnerWheel.css";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import homebtn from '../icons/home.png';
 
 function SpinnerWheel() {
   return (
