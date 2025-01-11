@@ -10,12 +10,14 @@ function App() {
   return (
     <>
       < NavBar />
+      <div className="page-content">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quote" element={<QuotePage />} />
         <Route path="/joke" element={<JokePage />} />
         <Route path="/breathing" element={<BreathingPage />} />
       </Routes>
+      </div>
     </>
   );
 }
