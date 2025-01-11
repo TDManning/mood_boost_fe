@@ -5,45 +5,76 @@ import './Modal.css'
 import { useState } from 'react';
 
 function Modal({modalOpen, onClose}) {
+  const [createAccount, setCreateAccount] = useState(false) 
 
   if (!modalOpen) return null
 
-  return ( 
+  return (
     <div className="modal">
       <div className="sign-in">
-        <button className="close-modal" onClick={onClose}><X /></button>
-        <h1>Sign In</h1>
+        <button className="close-modal" onClick={onClose}>
+          <X />
+        </button>
+        <h1>{createAccount ? 'Create Account' : 'Sign In'}</h1>
       </div>
       <form>
-        <div className='input-container'>
+        <div className="input-container">
+          {createAccount && (
+            <div className="input-with-icon">
+              <input
+                className="first-name"
+                type="text"
+                placeholder="Enter your first name (optional)"
+                required
+              />
+            </div>
+          )}
           <div className="input-with-icon">
             <input
-              className='username'
+              className="username"
               type="text"
-              placeholder="enter your username"
+              placeholder="Enter your username"
               required
             />
-            <span class="user-icon"><UserRound /></span>
+            <span className="user-icon">
+              <UserRound />
+            </span>
           </div>
           <div className="input-with-icon">
             <input
-              className='password'
-              type="text"
-              placeholder="enter your password"
+              className="password"
+              type="password"
+              placeholder="Enter your password"
               required
             />
-            <span class="password-icon"><KeyRound /></span>
+            <span className="password-icon">
+              <KeyRound />
+            </span>
           </div>
+          {createAccount && (
+            <div className="input-with-icon">
+              <input
+                className="email"
+                type="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+          )}
         </div>
       </form>
       <div className="submit">
-        <button className="login-submit">Login</button>
+        <button className="login-submit">
+          {createAccount ? 'Sign Up' : 'Login'}
+        </button>
         <div className="need-account">
-          <button>Create Account</button>
+          <button onClick={() => setCreateAccount(!createAccount)}>
+            {createAccount ? 'Back to Sign In' : 'Create Account'}
+          </button>
         </div>
-      </div>      
+      </div>
     </div>
-  )
+  );
 }
 
 export default Modal
