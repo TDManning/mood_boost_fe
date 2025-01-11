@@ -2,42 +2,78 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; 
   text-align: center;
-  padding: 8rem;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  height: 100vh;
+  margin-top: 150px;
+  padding: 0 15rem; 
+  background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); /* Match navbar */
+
+  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px); 
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+
+.home-page-wrapper {
+  background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); /* Full background */
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 h1 {
   font-size: 2.5rem;
-  color: #4caf50;
+  color: white; 
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #ffdab9; 
   margin-bottom: 1rem;
 }
 
 p {
   font-size: 1.2rem;
-  color: #555;
+  color: #ffe5d9; 
 }
 
 .basic-spinner {
+  position: relative;
   width: 200px;
   height: 200px;
-  border-radius: 50%;
-  border: 5px solid #4caf50; 
-  border-top: 5px solid #ffffff; 
-  animation: spin 2s linear infinite; 
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   cursor: pointer;
   margin-top: 2rem;
 }
 
-.basic-spinner p {
-  font-size: 1rem;
-  color: #4caf50;
+.spinner-outer {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top: 5px solid #f34e07; 
+  animation: spin 3s linear infinite; 
+  box-shadow: 0 0 30px rgba(255, 153, 0, 0.385); 
+  transition: box-shadow 0.3s ease, border-top-color 0.3s ease;
+}
+
+.basic-spinner:hover .spinner-outer {
+  border-top-color: #48e774; 
+  box-shadow: 0 0 40px rgba(72, 231, 116, 0.8), 0 0 80px rgba(255, 153, 0, 0.6);
+  transform: scale(2); 
+}
+
+.spinner-text {
+  position: absolute;
+  font-size: 1.2rem;
+  color: white;
   font-weight: bold;
   margin: 0;
 }
@@ -50,4 +86,3 @@ p {
     transform: rotate(360deg);
   }
 }
-

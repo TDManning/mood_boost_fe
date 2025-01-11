@@ -23,18 +23,21 @@ function HomePage() {
   };
 
   return (
-    <div className="home-page">
-      <h1>Welcome to MoodBoost</h1>
-      <h2>
-        Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.
-      </h2>
-      <p>Spin the wheel or use the menu to navigate to different pages</p>
-      <div className="basic-spinner" onClick={spinWheel}>
-        <p>Spin Me!</p>
+    <div className="home-page-wrapper">
+      <div className="home-page">
+        <h1>Welcome to Mood Boost</h1>
+        <h2>
+          Mood Boost offers simple breathing exercises, inspiring quotes, and a
+          touch of humor to brighten your day and put a smile on your face.
+        </h2>
+        <p>Spin the wheel to see a random page or use the menu to navigate to different pages</p>
+        <div className="basic-spinner" onClick={spinWheel}>
+          <div className="spinner-outer"></div>
+          <p className="spinner-text">Spin Me!</p>
+        </div>
+        {result && <p className="result">You got: {result}</p>}
       </div>
-      {result && <p className="result">You got: {result}</p>}
     </div>
-  )
+  );
 }
-
 export default HomePage;

@@ -1,3 +1,18 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+button, a, .clickable {
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1); 
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +51,5 @@
     transform: rotate(360deg);
   }
 }
+
+
