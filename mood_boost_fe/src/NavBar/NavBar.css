@@ -11,7 +11,7 @@ ul {
   display: flex;
   align-items: center;
   background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063);
-  height: 200px;
+  height: 100px;
   padding: 0 60px;
 }
 
