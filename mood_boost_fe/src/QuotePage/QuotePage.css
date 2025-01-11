@@ -1,0 +1,99 @@
+.quote-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-header {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+}
+
+#quote-h1 {
+  color: #f44034;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.new-quote {
+  background-color: #f44034;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  width: 20%;
+  cursor: pointer;
+  height: 60px;
+  font-weight: bold;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#speech-bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #f44034;
+  color: white;
+  font-weight: bold;
+  box-shadow: 
+    -8px -8px 20px #fff9, 
+    -6px -6px 6px #fff9,
+    8px 8px 20px #0001, 
+    5px 5px 6px #0001, 
+    inset 0px 0px 0px #fff9,
+    inset 0px 0px 0px #0001, 
+    inset 0px 0px 0px #fff9,
+    inset 0px 0px 0px #0001;
+  font-size: 1.5em;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  min-height: 250px;;
+  width: 70%;
+  overflow-wrap: break-word;
+}
+
+#speech-bubble:nth-child(1) {
+  border-left: 80px solid transparent;
+  border-image: linear-gradient(to bottom, #ff5724, #ff9900);
+  border-image-slice: 1;
+}
+
+#speech-bubble:nth-child(1)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -30px;
+  right: 20px;
+  border-width: 30px 0 0 30px;
+  border-style: solid;
+  border-color: #f44034 transparent;
+  width: 2px;
+  border-radius: 0 0 40px 0;
+}
+
+#quote-author {
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  #speech-bubble {
+    font-size: 1.2em;
+    padding: 15px;
+  }
+  .new-quote {
+    width: 70%;
+    font-size: 1rem;
+  }
+}
