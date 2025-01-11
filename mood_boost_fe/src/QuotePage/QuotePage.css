@@ -54,7 +54,6 @@
     inset 0px 0px 0px #fff9,
     inset 0px 0px 0px #0001;
   font-size: 1.5em;
-  border-radius: 10px;
   padding: 20px;
   position: relative;
   min-height: 250px;;
@@ -63,9 +62,22 @@
 }
 
 #speech-bubble:nth-child(1) {
-  border-left: 80px solid transparent;
-  border-image: linear-gradient(to bottom, #ff5724, #ff9900);
-  border-image-slice: 1;
+  position: relative;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#speech-bubble:nth-child(1)::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -80px; /* Adjust this to position the left border */
+  bottom: 0;
+  width: 80px; /* Size of the left border */
+  background: linear-gradient(to bottom, #ff5724, #ff9900); /* Gradient for the left border */
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 #speech-bubble:nth-child(1)::after {
@@ -78,13 +90,13 @@
   border-style: solid;
   border-color: #f44034 transparent;
   width: 2px;
-  border-radius: 0 0 40px 0;
+  border-radius: 0 0 20px 20px;
 }
 
 #quote-author {
   align-self: flex-end;
   margin-top: 20px;
-  font-size: 1.25rem;
+  font-size: 1em;
   font-style: italic;
 }
 
@@ -93,7 +105,7 @@
     font-size: 1.2em;
     padding: 15px;
   }
-  .new-quote {
-    font-size: 1rem;
+  #quote-author {
+    font-size: .75em;
   }
 }
