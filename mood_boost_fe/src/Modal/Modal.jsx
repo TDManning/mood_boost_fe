@@ -10,11 +10,13 @@ function Modal({modalOpen, onClose}) {
 
   return ( 
     <div className="modal">
-      <button className="close-modal" onClick={onClose}><X /></button>
-      <h1>Sign In</h1>
+      <div className="sign-in">
+        <button className="close-modal" onClick={onClose}><X /></button>
+        <h1>Sign In</h1>
+      </div>
       <form>
         <div className='input-container'>
-          <div>
+          <div className="input-with-icon">
             <input
               className='username'
               type="text"
@@ -23,7 +25,7 @@ function Modal({modalOpen, onClose}) {
             />
             <span class="user-icon"><UserRound /></span>
           </div>
-          <div>
+          <div className="input-with-icon">
             <input
               className='password'
               type="text"
