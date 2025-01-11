@@ -7,7 +7,6 @@
   margin-top: 150px;
   padding: 0 15rem; 
   background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); /* Match navbar */
-
   min-height: calc(100vh - 100px);
   height: calc(100vh - 100px); 
   color: white;
