@@ -28,12 +28,19 @@ function QuotePage() {
 
   return (
     <div className="quote-page">
-      <h1>Quote Page</h1>
       {quote ? (
         <>
-          <h3>{quote.content}</h3>
-          <p>{quote.author}</p>
-          <button className="new-quote" onClick={fetchQuote}>New Quote</button>
+          <div className="quote-header">
+            <h1 id="quote-h1">Find Your Spark: Daily Inspiration to Boost Your Mood</h1>
+            <p id="quote-description">Welcome to your daily dose of inspiration! Here, you'll find uplifting quotes to brighten your day, fuel your motivation, and spark positivity. Whether you're looking for a little encouragement, a fresh perspective, or just a reason to smile, let these words remind you of the strength, hope, and beauty in every moment.</p>
+          </div>
+          <div className="quote-container">
+            <h2 id="speech-bubble">
+              <span id="quote-content">{quote.content}</span>
+              <span id="quote-author">{quote.author}</span>
+            </h2>
+            <button className="new-quote" onClick={fetchQuote}>Generate New Quote</button>
+          </div>
         </>
       ) : (
         <p>Loading...</p>
