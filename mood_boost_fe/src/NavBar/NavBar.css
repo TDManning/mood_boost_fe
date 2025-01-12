@@ -48,6 +48,10 @@ ul {
   stroke: white; 
   font-weight: bold;
   font-size: 2rem;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ff5724;
+  color: #ffb84d;
 }
 
 .navbar a,
