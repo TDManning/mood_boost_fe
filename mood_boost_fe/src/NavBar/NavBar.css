@@ -9,6 +9,8 @@ ul li:hover .dropdown {
 .homebtn {
   height: 50px;
   width: 50px;
+  background-color: #ff5724;
+  color: #ffb84d;
 }
 
 .navbar {
