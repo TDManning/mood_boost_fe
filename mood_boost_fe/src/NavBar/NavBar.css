@@ -26,6 +26,8 @@ ul li:hover .dropdown {
   margin-left: auto;
   height: 40px;
   border-radius: 10px;
+  background-color: #ff5724;
+  color: #ffb84d;
 }
 
 .page-content.blur {
