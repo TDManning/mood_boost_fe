@@ -2,10 +2,6 @@ ul {
   list-style: none;
 }
 
-ul li:hover .dropdown {
-  display: block;
-}
-
 .homebtn {
   height: 50px;
   width: 50px;
@@ -14,22 +10,68 @@ ul li:hover .dropdown {
 .navbar {
   display: flex;
   align-items: center;
-  background: radial-gradient(circle, #ffb84d, #ff9900, #ff5724, #f44034, #e92063);
-  height: 100px;
+  background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063);
+  height: 150px;
+  padding: 0 60px;
 }
 
 .dropdown {
-  display: none;
+  display: none; 
+  position: absolute; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+.navbar ul li:hover .dropdown {
+  display: block; 
+  position: relative;
 }
 
 .login {
+  display: flex;
   margin-left: auto;
+  gap: 8px; 
+  padding: 10px;
+  background-color: transparent; 
+  color: white;
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.login-icon {
+  width: 20px;
+  height: 20px;
+  stroke: white; 
+  font-weight: bold;
+  font-size: 2rem;
   height: 40px;
   border-radius: 10px;
   background-color: #ff5724;
   color: #ffb84d;
 }
 
-.page-content.blur {
-  filter: blur(5px);
+.navbar a,
+.navbar button,
+.navbar ul li {
+  color: white; 
+  font-weight: bold; 
+  text-decoration: none; 
+  transition: all 0.3s ease; 
+  font-size: 1.2rem;
 }
+
+.navbar a:hover,
+.navbar button:hover,
+.navbar ul li:hover {
+  transform: scale(1.1); 
+}
+
+.navbar ul li {
+  cursor: pointer;
+}
+
+
