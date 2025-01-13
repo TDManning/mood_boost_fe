@@ -17,6 +17,10 @@
   margin-top: 50px;
 }
 
+#quote-description {
+  color: #ff5724;
+}
+
 .new-quote {
   background-color: #f44034;
   border: none;
