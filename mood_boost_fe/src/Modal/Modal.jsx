@@ -1,6 +1,4 @@
-import { X } from 'lucide-react';
-import { UserRound } from 'lucide-react';
-import { KeyRound } from 'lucide-react';
+import { X, UserRound, KeyRound, Mail, PersonStanding } from 'lucide-react';
 import './Modal.css'
 import { useState } from 'react';
 
@@ -27,6 +25,9 @@ function Modal({modalOpen, onClose}) {
                 placeholder="Enter your first name (optional)"
                 required
               />
+              <span className="user-icon">
+              <PersonStanding />
+            </span>
             </div>
           )}
           <div className="input-with-icon">
@@ -53,12 +54,28 @@ function Modal({modalOpen, onClose}) {
           </div>
           {createAccount && (
             <div className="input-with-icon">
+            <input
+              className="password"
+              type="password"
+              placeholder="Confirm your password"
+              required
+            />
+            <span className="password-icon">
+              <KeyRound />
+            </span>
+          </div>
+          )}
+          {createAccount && (
+            <div className="input-with-icon">
               <input
                 className="email"
                 type="email"
                 placeholder="Enter your email"
                 required
               />
+              <span className="password-icon">
+              <Mail />
+            </span>
             </div>
           )}
         </div>
