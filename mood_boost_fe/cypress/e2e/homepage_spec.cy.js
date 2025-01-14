@@ -38,8 +38,13 @@ describe('Homepage Spec', () => {
     cy.get('h1').contains('Welcome to Mood Boost')
     cy.get('h2').contains('Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.')
     cy.get('p').contains('Click below to see a random page or use the menu to navigate to different pages')
+    cy.get('.basic-spinner').should('exist')
     cy.get('.spinner-outer').should('exist')
     cy.get('.spinner-text').should('exist')
   })
 
+  it('Can Spin the Wheel and confirm a boost page loads', () => {
+    cy.get('.basic-spinner').click();
+    cy.location('pathname').should('be.oneOf', ['/breathing', '/quote', '/joke'])
+  })
 })
