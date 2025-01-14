@@ -41,9 +41,9 @@ function NavBar() {
             <li>
               <span className="mood-boosts-title">Mood Boosts</span>
               <ul className="dropdown">
-                <li><NavLink to="/breathing">Breathing Exercises</NavLink></li>
-                <li><NavLink to="/quote">Inspirational Quotes</NavLink></li>
-                <li><NavLink to="/joke">Joke Generator</NavLink></li>
+                <li><NavLink to="/breathing" className='navbar_boosts breathing'>Breathing Exercises</NavLink></li>
+                <li><NavLink to="/quote" className='navbar_boosts quote'>Inspirational Quotes</NavLink></li>
+                <li><NavLink to="/joke" className='navbar_boosts joke'>Joke Generator</NavLink></li>
             </ul>
             </li>
           </ul>
