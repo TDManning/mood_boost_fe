@@ -33,7 +33,7 @@ function HomePage() {
     <div className="home-page-wrapper">
       <div className="home-page">
       <FloatingCircles />
-        <h1 class="animated-title">Welcome to Mood Boost</h1>
+        <h1 className="animated-title">Welcome to Mood Boost</h1>
         <h2>
           Mood Boost offers simple breathing exercises, inspiring quotes, and a
           touch of humor to brighten your day and put a smile on your face.
