@@ -1,11 +1,12 @@
 import "./QuotePage.css";
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function QuotePage() {
   const [quote, setQuote] = useState(null)
 
   function fetchQuote() {
-    fetch(`https://api.realinspire.tech/v1/quotes/random`)
+    fetch('https://api.realinspire.tech/v1/quotes/random')
     .then(response=> {
       if (!response.ok) {
         throw new Error("Failed to fetch quote")
