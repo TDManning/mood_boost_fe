@@ -25,10 +25,10 @@ body, html {
 }
 
 .breathing-circle {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    background-color: rgb(71, 106, 233);
+    background: radial-gradient(farthest-corner, #30248c, #4335b1, #4f3ece, #4054d8);
     animation: breath 10s infinite alternate;
     z-index: 1;
 }
@@ -45,7 +45,7 @@ body, html {
     }
 }
 
-  
+
 
 
 
