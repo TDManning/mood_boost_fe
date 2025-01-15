@@ -1,17 +1,12 @@
 describe('Modal Spec', () => {
   beforeEach (() => {
     cy.visit('http://localhost:3000');
-    cy.window().then((open) => {
-      if (!open.modalOpen) {
-        open.modalOpen = true;
-      }
-    })
+    cy.get('button.login').click();
+    cy.get('.modal', { timeout: 10000 }).should('be.visible');
   });
 
 
-
   it('Displays Modal Elements', () => {
-    cy.get('.modal').should('exist');
     cy.get('.sign-in h1').contains('Sign In');
     cy.get('.close-modal').should('exist');
     cy.get('.username').should('exist');
