@@ -6,10 +6,19 @@
 }
 
 .get-joke {
-    display: flex;
-    background-color: #ff5724;
-    color: black;
-    border-color: #ff5724;
+    background: linear-gradient(to bottom, #ff5724, #ff9900); 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 200px;
+    cursor: pointer;
+    height: 60px;
+    font-weight: bold;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 50px;
 }
 
 .joke-area {
