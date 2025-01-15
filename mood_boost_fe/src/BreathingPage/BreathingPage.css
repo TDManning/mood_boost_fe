@@ -25,18 +25,21 @@ body, html {
     z-index: 0;
 }
 
-.start-button {
-    margin-bottom: 10vh;
-    padding: 10px;
-    font-size: inherit;
-    color: #fff;
-    background-color: #4c3cc7;
+#start-button {
+    background: linear-gradient(to bottom, #ff5724, #ff9900); 
     border: none;
-    border-radius: 2%;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 200px;
     cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s;
+    height: 60px;
+    font-weight: bold;
+    box-sizing: border-box;
+    margin-bottom: 50px;
 }
+
 .breathing-circle {
     width: 150px;
     height: 150px;
@@ -57,9 +60,3 @@ body, html {
         transform: scale(1);
     }
 }
-
-
-
-
-
-

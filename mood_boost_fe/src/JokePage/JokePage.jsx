@@ -29,7 +29,7 @@ function JokePage({joke}) {
         setJoke(`${data.setup} - ${data.delivery}`);
       }
     })
-    .catch(error => setError(error.message))
+    .catch(error => setError('Something went wrong. There was an issue coming up with something humorous to say.  Please try again in a few minutes.'))
     ;}
 
     if (error) {
