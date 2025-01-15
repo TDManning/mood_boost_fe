@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    z-index: 0;
 }
 
 .breathing-page {
@@ -24,6 +25,18 @@ body, html {
     z-index: 0;
 }
 
+.start-button {
+    margin-bottom: 10vh;
+    padding: 10px;
+    font-size: inherit;
+    color: #fff;
+    background-color: #4c3cc7;
+    border: none;
+    border-radius: 2%;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
 .breathing-circle {
     width: 150px;
     height: 150px;
