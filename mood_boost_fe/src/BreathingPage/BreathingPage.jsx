@@ -6,8 +6,8 @@ function BreathingPage() {
   return (
     <div>
         <section class="breathing-page">
-          <FloatingCircles class="background"/>
-           <div className="breathing-circle"></div>
+            {/* <FloatingCircles class="background"/> */}
+            <div className="breathing-circle"></div>
       </section>
     </div>
   )

@@ -23,7 +23,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgb(233, 176, 71);
+    background-color: rgb(71, 106, 233);
     animation: breath 10s infinite alternate;
 }
 
