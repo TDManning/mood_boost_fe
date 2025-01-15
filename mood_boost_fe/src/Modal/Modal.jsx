@@ -1,6 +1,7 @@
 import { X, UserRound, KeyRound, Mail, PersonStanding } from 'lucide-react';
 import './Modal.css'
 import { useState, useEffect } from 'react';
+import validator from 'validator';
 
 function Modal({modalOpen, onClose, resetToSignIn}) {
   const [createAccount, setCreateAccount] = useState(false) 
@@ -12,151 +13,188 @@ function Modal({modalOpen, onClose, resetToSignIn}) {
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
 
-function createNewUser() {
-  if (createAccount && (!username || !password || !password_confirmation || !email)) {
-  setErrorMessage("Username, password, password confirmation, and email are required")
-  return
+  function createNewUser() {
+    const endpoint = createAccount ? 'http://localhost:3000/api/v1/users' : 'http://localhost:3000/api/v1/sessions'
+
+    const body = createAccount ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }}) : JSON.stringify({ username, password })
+
+    fetch(endpoint, {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        console.log(response)
+        if (!response.ok) throw new Error('Unsuccessful network response')
+        return response.json()
+      })
+        .then(() => {
+          createAccount ? setSuccessMessage('User created successfully') : setSuccessMessage('You are logged in')
+          setErrorMessage('')
+      })
+        .catch((error) => {
+          createAccount ? setErrorMessage('Failed to create user. Please try again later.') : setErrorMessage('Unable to log in. Please try again later.')
+          console.error('Error:', error)
+      })
+    }
+
+  function clearFields() {
+    setFirstname('')
+    setUserName('')
+    setPassword('')
+    setPasswordConfirmation('')
+    setEmail('')
   }
-  if (!createAccount && (!username || !password)) {
-  setErrorMessage("Username and password are required")
-  return
+
+  function clearMessage() {
+    setErrorMessage('')
+    setSuccessMessage('')
   }
 
-  const endpoint = createAccount ? 'http://localhost:3000/api/v1/users' : 'http://localhost:3000/api/v1/sessions'
+  useEffect(() => {
+    if (resetToSignIn) {
+      setCreateAccount(false)
+    }
+  }, [resetToSignIn])
 
-  const body = createAccount ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }}) : JSON.stringify({ username, password })
+  function handleSubmit(e) {
+    e.preventDefault()
 
-  fetch(endpoint, {
-    method: 'POST',
-    body,
-    headers: {
-      'Content-Type': 'application/json'
+    if (createAccount) {
+      if (validator.isEmail(email) && validator.isStrongPassword(password) && first_name.length <= 20) {
+        createNewUser()
+        clearFields()
+        } else {
+          if (!validator.isEmail(email)) {
+            setSuccessMessage('')
+            setErrorMessage('Invalid email address')
+            clearFields()
+        } else if (!validator.isStrongPassword(password)) {
+          setSuccessMessage('')
+          setErrorMessage('Your password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one symbol')
+          clearFields()
+        } else if (!first_name.length <= 20) {
+          setSuccessMessage('')
+          setErrorMessage('First name cannot exceed 20 characters')
+          clearFields()
+        }
       }
-    })
-    .then((response) => {
-      console.log(response)
-      if (!response.ok) throw new Error('Unsuccessful network response')
-      return response.json()
-    })
-      .then(() => {
-        createAccount ? setSuccessMessage('User created successfully') : setSuccessMessage('You are logged in')
-        setErrorMessage('')
-    })
-      .catch((error) => {
-        createAccount ? setErrorMessage('Failed to create user. Please try again later.') : setErrorMessage('Unable to log in. Please try again later.')
-        console.error('Error:', error)
-    })
+    } else {
+      if (username && password) {
+        createNewUser() 
+        clearFields()
+      } else {
+        setSuccessMessage('')
+        setEmail('Both username and password are required')
+      }
+    }
   }
 
-    useEffect(() => {
-      if (resetToSignIn) {
-        setCreateAccount(false)
-      }
-    }, [resetToSignIn])
+  if (!modalOpen) return null
 
-    if (!modalOpen) return null
-
-    return (
-      <div className="modal"> 
-        <div className="sign-in">
-          <button className="close-modal" onClick={onClose}>
-            <X />
-          </button>
-          <h1>{createAccount ? 'Create Account' : 'Sign In'}</h1>
-        </div>
-        <form onSubmit={(e) => {
-          e.preventDefault()
-          createNewUser()
-        }}>
-          <div className="input-container">
-            {createAccount && (
-              <div className="input-with-icon">
-                <input
-                  className="first-name"
-                  type="text"
-                  placeholder="Enter your first name (optional)"
-                  value={first_name}
-                  onChange={(e) => setFirstname(e.target.value)}
-                />
-                <span className="user-icon">
-                <PersonStanding />
-              </span>
-              </div>
-            )}
+  return (
+    <div className="modal"> 
+      <div className="sign-in">
+        <button className="close-modal" onClick={onClose}>
+          <X />
+        </button>
+        <h1>{createAccount ? 'Create Account' : 'Sign In'}</h1>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="input-container">
+          {createAccount && (
             <div className="input-with-icon">
               <input
-                className="username"
+                className="first-name"
                 type="text"
-                placeholder="Enter your username"
-                required
-                value={username}
-                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Enter your first name (optional)"
+                value={first_name}
+                onChange={(e) => setFirstname(e.target.value)}
               />
               <span className="user-icon">
-                <UserRound />
-              </span>
+              <PersonStanding />
+            </span>
             </div>
+          )}
+          <div className="input-with-icon">
+            <input
+              className="username"
+              type="text"
+              placeholder="Enter your username"
+              required
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <span className="user-icon">
+              <UserRound />
+            </span>
+          </div>
+          <div className="input-with-icon">
+            <input
+              className="password"
+              type="password"
+              placeholder="Enter your password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className="password-icon">
+              <KeyRound />
+            </span>
+          </div>
+          {createAccount && (
+            <div className="input-with-icon">
+            <input
+              className="password"
+              type="password"
+              placeholder="Confirm your password"
+              required
+              value={password_confirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+            />
+            <span className="password-icon">
+              <KeyRound />
+            </span>
+          </div>
+          )}
+          {createAccount && (
             <div className="input-with-icon">
               <input
-                className="password"
-                type="password"
-                placeholder="Enter your password"
+                className="email"
+                type="email"
+                placeholder="example@email.com"
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <span className="password-icon">
-                <KeyRound />
-              </span>
+              <Mail />
+            </span>
             </div>
-            {createAccount && (
-              <div className="input-with-icon">
-              <input
-                className="password"
-                type="password"
-                placeholder="Confirm your password"
-                required
-                value={password_confirmation}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}
-              />
-              <span className="password-icon">
-                <KeyRound />
-              </span>
-            </div>
-            )}
-            {createAccount && (
-              <div className="input-with-icon">
-                <input
-                  className="email"
-                  type="email"
-                  placeholder="example@email.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <span className="password-icon">
-                <Mail />
-              </span>
-              </div>
-            )}
-          </div>
-        <div className="messages">
-          {errorMessage && <p className="error">{errorMessage}</p>}
-          {successMessage && <p className="success">{successMessage}</p>}
+          )}
         </div>
-        <div className="submit">
-          <button className="login-submit" type="submit">
-            {createAccount ? 'Sign Up' : 'Login'}
-          </button>
-          <div className="need-account">
-            <button onClick={() => setCreateAccount(!createAccount)}>
-              {createAccount ? 'Back to Sign In' : 'Create Account'}
-            </button>
-          </div>
-        </div>
-        </form>
+      <div className="messages">
+        {errorMessage && <p className="error">{errorMessage}</p>}
+        {successMessage && <p className="success">{successMessage}</p>}
       </div>
-    );
-  }
+      <div className="submit">
+        <button className="login-submit" type="submit">
+          {createAccount ? 'Sign Up' : 'Login'}
+        </button>
+        <div className="need-account">
+          <button onClick={() => {
+            setCreateAccount(!createAccount) 
+            clearMessage()
+          }}>
+            {createAccount ? 'Back to Sign In' : 'Create Account'}
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+  );
+}
 
 export default Modal
