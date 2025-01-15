@@ -15,7 +15,7 @@ function BreathingPage() {
         <section class="breathing-page">
             <FloatingCircles class="background"/>
             {!isBreathing && (
-                <button classname="start-button"
+                <button id="start-button" classname="start-button"
                onClick={handleStartBreathing}
                >Start Breathing Exercise</button>
             )}
