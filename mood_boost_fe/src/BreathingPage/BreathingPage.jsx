@@ -1,15 +1,31 @@
+import FloatingCircles from "../HomePage/FloatingCircles";
 import "./BreathingPage.css";
+import { useState } from "react";
 
 
 function BreathingPage() {
+  const [isBreathing, setIsBreathing] = useState(false);
+
+  const handleStartBreathing = () => {
+    setIsBreathing(true);
+  }
+
   return (
-    <div className="breathing-page">
-      {/* <h1>Breathing Page</h1> */}
-      <img 
-        src="https://opryshok.com/wp-content/uploads/2023/10/Box-Breathing-GIF.gif"
-        alt="Breathing Exercise"/>
+    <div>
+        <section class="breathing-page">
+            <FloatingCircles class="background"/>
+            {!isBreathing && (
+                <button classname="start-button"
+               onClick={handleStartBreathing}
+               >Start Breathing Exercise</button>
+            )}
+              {isBreathing && (
+                  <div className="breathing-circle"></div>
+              )}
+          
+      </section>
     </div>
-  )
+  );
 }
 
 export default BreathingPage;

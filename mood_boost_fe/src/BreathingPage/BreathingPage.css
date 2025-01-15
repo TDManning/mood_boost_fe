@@ -1,25 +1,65 @@
 
-
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    z-index: 0;
 }
 
 .breathing-page {
-    margin: 0;
-    padding: 0;
     display: flex;
-    background-color: rgba(58,193,163,255);
     justify-content: center;
     align-items: center;
-    height: 80%;
-    
+    height: 85vh;
+    background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063 );
+    overflow: hidden;
+    position: relative;
 }
 
-img {
-   width: 60%;
-   height: 100%;
-   object-fit: cover;
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
+
+.start-button {
+    margin-bottom: 10vh;
+    padding: 10px;
+    font-size: inherit;
+    color: #fff;
+    background-color: #4c3cc7;
+    border: none;
+    border-radius: 2%;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+.breathing-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-corner, #30248c, #4335b1, #4f3ece, #4054d8);
+    animation: breath 10s infinite alternate;
+    z-index: 1;
+}
+
+@keyframes breath {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+
 
