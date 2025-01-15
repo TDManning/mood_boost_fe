@@ -1,1 +1,33 @@
-# mood_boost_fe
+# MOOD BOOST (Front End)
+
+![Front End Image](mood_boost_fe/src/icons/Moodboost_fe.png)
+
+Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.  You can use the application as a guest or login to have it track your activity usage.
+
+## Getting Started
+Clone down the resposity to your location machine, cd into the direcotry and run: 
+- npm install
+
+
+### Technology Used
+- React v19.0
+- React Router v7.1
+
+### Prerequisites
+To use the user login functionality you will be required to have the [Mood Boost Backend Repo](https://github.com/Mood-Boost/mood_boost_be) installed and running.
+
+## Test Suite
+End to End testing was done with Cypress.  To run the test suite you will need to install Cypress with: 
+- npm i -D cypress
+
+Then update your package.json file by adding: "cypress": "cypress open" to your "scripts" section.
+
+To run Cypress from the command line type: 
+- npm run cypress
+
+## Contributors
+- Danielle Cardona [github](https://github.com/dcardona23) [LinkedIn](https://www.linkedin.com/in/danielle-cardona-se/)
+- Karl Fallenius [github](https://github.com/SmilodonP) [LinkedIn](https://www.linkedin.com/in/karlfallenius/)
+- Michael O'Brien [github](https://github.com/MiTOBrien) [LinkedIn](https://www.linkedin.com/in/michaelobrien67/)
+- Paul Knapp [github](https://github.com/Paul-Knapp) [LinkedIn](https://www.linkedin.com/in/paul-m-knapp/)
+- Terra Manning [github](https://github.com/TDManning) [LinkedIn](https://www.linkedin.com/in/terra-manning/)
