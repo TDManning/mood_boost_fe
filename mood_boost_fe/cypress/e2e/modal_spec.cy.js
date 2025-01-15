@@ -1,8 +1,14 @@
 describe('Modal Spec', () => {
   beforeEach (() => {
     cy.visit('http://localhost:3000');
-    cy.get('.login').click();
+    cy.window().then((open) => {
+      if (!open.modalOpen) {
+        open.modalOpen = true;
+      }
+    })
   });
+
+
 
   it('Displays Modal Elements', () => {
     cy.get('.modal').should('exist');
@@ -22,7 +28,14 @@ describe('Modal Spec', () => {
     cy.get('.password').should('exist');
     cy.get('.need-account button').click();
     cy.get('.sign-in h1').contains('Sign In');
-    
+  });
+
+  it('Submits Login Form with Valid Credentials', () => {
+    cy.intercept('POST', 'http://localhost:3000/api/v1/sessions', {
+      statusCode:200,
+      body: { message: 'You are logged in' }, 
+    }).as('loginRequest');
+
 
   })
 })
