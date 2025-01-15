@@ -6,11 +6,11 @@ function BreathingPage() {
   return (
     <div>
         <section class="breathing-page">
-            {/* <FloatingCircles class="background"/> */}
+            <FloatingCircles class="background"/>
             <div className="breathing-circle"></div>
       </section>
     </div>
-  )
+  );
 }
 
 export default BreathingPage;
