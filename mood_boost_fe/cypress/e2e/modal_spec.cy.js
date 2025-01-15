@@ -5,7 +5,6 @@ describe('Modal Spec', () => {
     cy.get('.modal', { timeout: 10000 }).should('be.visible');
   });
 
-
   it('Displays Modal Elements', () => {
     cy.get('.sign-in h1').contains('Sign In');
     cy.get('.close-modal').should('exist');
@@ -31,6 +30,23 @@ describe('Modal Spec', () => {
       body: { message: 'You are logged in' }, 
     }).as('loginRequest');
 
+    cy.get('.username').type('testuser');
+    cy.get('.password').type('password123');
+    cy.get('.login-submit').click();
 
+    cy.wait('@loginRequest').its('response.statusCode').should('eq', 200);
+  });
+
+  it('Displays Error Message on Invalid Login', () => {
+    cy.intercept('POST', 'http://localhost:3000/api/v1/sessions', {
+      statusCode: 401,
+      body: { error: 'Invalid credentials' },
+    }).as('loginError');
+    cy.get('.username').type('testuser');
+    cy.get('.password').type('wrongpassword');
+    cy.get('.login-submit').click();
+
+    cy.wait('@loginError');
+    cy.get('.messages .error').should('contain', 'Unable to log in. Please try again later.');
   })
 })
