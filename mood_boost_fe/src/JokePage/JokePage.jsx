@@ -37,14 +37,14 @@ function JokePage({joke}) {
     }
       return (
         <div className="joke-page">
-      <h1>Joke Page</h1>
-      <section className="joke-area">
-        <h3>{currentJoke}</h3>
-      </section> 
-      <button className='get-joke' aria-label="get a joke" onClick={() => getjoke()}>
-          Tell Me A Joke
-      </button>
-    </div>
+            <h1>Joke Page</h1>
+          <section className="joke-area">
+            <h3>{currentJoke}</h3>
+          </section> 
+                <button className='get-joke' aria-label="get a joke" onClick={() => getjoke()}>
+                  Tell Me A Joke
+                </button>
+        </div>
     )
   }
 
