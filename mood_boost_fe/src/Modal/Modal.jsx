@@ -14,7 +14,7 @@ function Modal({modalOpen, onClose, resetToSignIn}) {
   const [successMessage, setSuccessMessage] = useState('')
 
   function createNewUser() {
-    const endpoint = createAccount ? 'http://localhost:3000/api/v1/users' : 'http://localhost:3000/api/v1/sessions'
+    const endpoint = createAccount ? 'https://mood-boost-be.onrender.com/api/v1/users' : 'https://mood-boost-be.onrender.com/api/v1/sessions'
 
     const body = createAccount ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }}) : JSON.stringify({ username, password })
 
@@ -25,20 +25,25 @@ function Modal({modalOpen, onClose, resetToSignIn}) {
         'Content-Type': 'application/json'
         }
       })
-      .then((response) => {
-        console.log(response)
-        if (!response.ok) throw new Error('Unsuccessful network response')
-        return response.json()
+      .then(async (response) => {
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw errorData;
+      }
+      return response.json()
       })
         .then(() => {
-          createAccount ? setSuccessMessage('User created successfully') : setSuccessMessage('You are logged in')
+          setSuccessMessage(createAccount ? 'User created successfully' : 'You are logged in')
           setErrorMessage('')
       })
         .catch((error) => {
-          createAccount ? setErrorMessage('Failed to create user. Please try again later.') : setErrorMessage('Unable to log in. Please try again later.')
-          console.error('Error:', error)
+          if (createAccount && error.errors[0]?.detail) {
+            setErrorMessage(error.errors[0].detail)
+        } else {
+          setErrorMessage(createAccount ? 'Failed to create user. Please try again.' : 'Unable to log in. Please try again.')
+        }
       })
-    }
+  }
 
   function clearFields() {
     setFirstname('')
