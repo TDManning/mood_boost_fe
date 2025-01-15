@@ -37,10 +37,13 @@ function Modal({modalOpen, onClose, resetToSignIn}) {
           setErrorMessage('')
       })
         .catch((error) => {
-          if (createAccount && error.errors[0]?.detail) {
+          console.log(error.errors)
+          if (error.errors && error.errors[0]?.detail) {
             setErrorMessage(error.errors[0].detail)
+            setSuccessMessage('')
         } else {
           setErrorMessage(createAccount ? 'Failed to create user. Please try again.' : 'Unable to log in. Please try again.')
+          setSuccessMessage('')
         }
       })
   }
