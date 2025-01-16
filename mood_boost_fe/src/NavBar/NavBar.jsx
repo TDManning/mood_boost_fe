@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import { LogIn } from 'lucide-react';
+import { LogIn, LogOut } from 'lucide-react';
 import homebtn from '../icons/home.png';
 import HomePage from "../HomePage/HomePage";
 import Modal from '../Modal/Modal';
@@ -64,7 +64,7 @@ function NavBar() {
         <Modal modalOpen={modalOpen}
          onClose={handleCloseModal} 
          resetToSignIn={modalOpen}
-         onLoginSuccess={() => serUserLoggedIn(true)}
+         onLoginSuccess={() => setUserLoggedIn(true)}
           />
       </div>
     )
