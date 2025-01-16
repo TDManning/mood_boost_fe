@@ -3,7 +3,7 @@ import './Modal.css'
 import { useState, useEffect } from 'react';
 import validator from 'validator';
 
-function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess}) {
+function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
   const [createAccount, setCreateAccount] = useState(false) 
   const [first_name, setFirstname] = useState('')
   const [username, setUserName] = useState('')
@@ -14,7 +14,7 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess}) {
   const [successMessage, setSuccessMessage] = useState('')
 
   function createNewUser() {
-    const endpoint = createAccount ? 'https://mood-boost-be.onrender.com/api/v1/users' : 'https://mood-boost-be.onrender.com/api/v1/sessions'
+    const endpoint = createAccount ? 'http://localhost:5000/api/v1/users' : 'http://localhost:5000/api/v1/sessions'
 
     const body = createAccount ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }}) : JSON.stringify({ username, password })
 
@@ -32,14 +32,17 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess}) {
       }
       return response.json()
       })
-        .then(() => {
-          setSuccessMessage(createAccount ? 'User created successfully' : 'You are logged in')
+        .then((data) => {
+          if (data.data.id) {
+            const userId = data.data.id
+            setUser(userId)
+          }
+          setSuccessMessage(createAccount ? 'User created successfully. You are logged in.' : 'You are logged in')
           setErrorMessage('')
           onLoginSuccess();
           onClose();
       })
         .catch((error) => {
-          console.log(error.errors)
           if (error.errors && error.errors[0]?.detail) {
             setErrorMessage(error.errors[0].detail)
             setSuccessMessage('')
