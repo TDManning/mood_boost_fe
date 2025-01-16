@@ -35,6 +35,8 @@ function Modal({modalOpen, onClose, resetToSignIn}) {
         .then(() => {
           setSuccessMessage(createAccount ? 'User created successfully' : 'You are logged in')
           setErrorMessage('')
+          onLoginSuccess();
+          onClose();
       })
         .catch((error) => {
           console.log(error.errors)
