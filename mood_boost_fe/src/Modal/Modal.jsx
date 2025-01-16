@@ -3,7 +3,7 @@ import './Modal.css'
 import { useState, useEffect } from 'react';
 import validator from 'validator';
 
-function Modal({modalOpen, onClose, resetToSignIn}) {
+function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess}) {
   const [createAccount, setCreateAccount] = useState(false) 
   const [first_name, setFirstname] = useState('')
   const [username, setUserName] = useState('')
@@ -35,6 +35,8 @@ function Modal({modalOpen, onClose, resetToSignIn}) {
         .then(() => {
           setSuccessMessage(createAccount ? 'User created successfully' : 'You are logged in')
           setErrorMessage('')
+          onLoginSuccess();
+          onClose();
       })
         .catch((error) => {
           console.log(error.errors)

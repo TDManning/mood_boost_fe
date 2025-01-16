@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import { LogIn } from 'lucide-react';
+import { LogIn, LogOut } from 'lucide-react';
 import homebtn from '../icons/home.png';
 import HomePage from "../HomePage/HomePage";
 import Modal from '../Modal/Modal';
@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [userLoggedIn, setUserLoggedIn] = useState(false)
 
   useEffect(() => {
     const pageContent = document.querySelector('.page-content')
@@ -28,6 +29,11 @@ function NavBar() {
     setModalOpen(false)
   }
 
+  function handleLogout() {
+    setUserLoggedIn(false);
+    console.log("User Logged Out")
+  }
+
     return (
       <div className="navbar-wrapper">
         <nav className="navbar">
@@ -45,11 +51,21 @@ function NavBar() {
               </ul>
             </li>
           </ul>
+          {userLoggedIn ? (
+          <button className="logout" onClick={handleLogout}>
+            <LogOut className="logout-icon" />Logout
+          </button>
+        ) : (
           <button className="login" onClick={handleOpenModal}>
             <LogIn className="login-icon" />Login/Register
           </button>
+        )}
         </nav>
-        <Modal modalOpen={modalOpen} onClose={handleCloseModal} resetToSignIn={modalOpen} />
+        <Modal modalOpen={modalOpen}
+         onClose={handleCloseModal} 
+         resetToSignIn={modalOpen}
+         onLoginSuccess={() => setUserLoggedIn(true)}
+          />
       </div>
     )
 }
