@@ -11,20 +11,20 @@ function BreathingPage() {
   }
 
   return (
-    <div>
-        <section class="breathing-page">
-            <FloatingCircles class="background"/>
-            {!isBreathing && (
-                <button id="start-button" classname="start-button"
-               onClick={handleStartBreathing}
-               >Start Breathing Exercise</button>
-            )}
-              {isBreathing && (
-                  <div className="breathing-circle"></div>
+      <div>
+        <h2>Breathe in and out as the circle expands and contracts</h2>
+          <section className="breathing-page">
+              <FloatingCircles className="background"/>
+              {!isBreathing && (
+                  <button id="start-button" className="start-button"
+                onClick={handleStartBreathing}
+                >Start Breathing Exercise</button>
               )}
-          
-      </section>
-    </div>
+                {isBreathing && (
+                    <div className="breathing-circle"></div>
+                )}
+        </section>
+      </div>
   );
 }
 
