@@ -15,23 +15,23 @@ function BreathingPage({user, logUserActivity}) {
   }
 
   return (
-    <div>
-        <section class="breathing-page">
-            <FloatingCircles class="background"/>
-            {!isBreathing && (
-                <button id="start-button" classname="start-button"
+      <div>
+        <h2>Breathe in and out as the circle expands and contracts</h2>
+          <section className="breathing-page">
+              <FloatingCircles className="background"/>
+              {!isBreathing && (
+                  <button id="start-button" className="start-button"
                 onClick={() => {
                   handleStartBreathing()
                   handleClick()
                  }}
-               >Start Breathing Exercise</button>
-            )}
-              {isBreathing && (
-                  <div className="breathing-circle"></div>
+                >Start Breathing Exercise</button>
               )}
-          
-      </section>
-    </div>
+                {isBreathing && (
+                    <div className="breathing-circle"></div>
+                )}
+        </section>
+      </div>
   );
 }
 
