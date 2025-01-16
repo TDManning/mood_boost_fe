@@ -5,6 +5,7 @@ import QuotePage from './QuotePage/QuotePage';
 import JokePage from './JokePage/JokePage';
 import BreathingPage from './BreathingPage/BreathingPage';
 import HomePage from './HomePage/HomePage';
+import UserProfile from './UserProfile/UserProfile'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/quote" element={<QuotePage />} />
         <Route path="/joke" element={<JokePage />} />
         <Route path="/breathing" element={<BreathingPage />} />
+        <Route path="/user" element={<UserProfile />} />
       </Routes>
       </div>
     </>
