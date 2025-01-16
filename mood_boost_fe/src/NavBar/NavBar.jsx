@@ -41,12 +41,13 @@ function NavBar() {
                 <li><NavLink to="/breathing" className='navbar_boosts breathing'>Breathing Exercises</NavLink></li>
                 <li><NavLink to="/quote" className='navbar_boosts quote'>Inspirational Quotes</NavLink></li>
                 <li><NavLink to="/joke" className='navbar_boosts joke'>Joke Generator</NavLink></li>
-            </ul>
+                <li><NavLink to="/user" className='navbar_boosts user'>User History</NavLink></li>
+              </ul>
             </li>
           </ul>
-        <button className="login" onClick={handleOpenModal}>
-          <LogIn className="login-icon" />Login/Register
-        </button>
+          <button className="login" onClick={handleOpenModal}>
+            <LogIn className="login-icon" />Login/Register
+          </button>
         </nav>
         <Modal modalOpen={modalOpen} onClose={handleCloseModal} resetToSignIn={modalOpen} />
       </div>
