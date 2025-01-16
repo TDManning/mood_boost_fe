@@ -7,7 +7,7 @@
   margin-top: 150px;
   padding: 0 15rem; 
   background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); 
-  height: calc(100vh - 100px); 
+  height: calc(100vh + 100px); 
   color: white;
   position: relative;
 }
@@ -134,3 +134,72 @@ p {
   }
 }
 
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .home-page {
+    padding: 0 5rem;
+    margin-top: 100px; 
+  }
+
+  .animated-title {
+    font-size: 2.5rem; 
+  }
+
+  h2 {
+    font-size: 1.5rem; 
+  }
+
+  .basic-spinner {
+    width: 150px;
+    height: 150px; 
+  }
+
+  .spinner-outer {
+    width: 200px;
+    height: 200px; 
+  }
+}
+
+ /* Responsive design for a phone */
+@media (max-width: 480px) {
+  .home-page {
+    padding: 0 2rem;
+    margin-top: 80px;
+  }
+
+  .animated-title {
+    font-size: 2rem; 
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem; 
+  }
+
+  .basic-spinner {
+    width: 120px;
+    height: 120px;
+  }
+
+  .spinner-outer {
+    width: 150px;
+    height: 150px;
+  }
+
+  .navbar {
+    flex-direction: column; 
+    height: auto;
+    padding: 10px;
+  }
+
+  .login {
+    font-size: 1rem; 
+  }
+
+  .navbar ul li {
+    font-size: 1rem; 
+  }
+}

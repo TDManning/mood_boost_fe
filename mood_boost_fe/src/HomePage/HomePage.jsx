@@ -38,7 +38,7 @@ function HomePage() {
           Mood Boost offers simple breathing exercises, inspiring quotes, and a
           touch of humor to brighten your day and put a smile on your face.
         </h2>
-        <p>Click below to see a random page or use the menu to navigate to different pages</p>
+        <p>Click below to see a random page or use the Mood Boost dropdown menu to navigate to different pages</p>
         <div className="basic-spinner" onClick={spinWheel}>
           <div className="spinner-outer"></div>
           <p className="spinner-text"></p>
