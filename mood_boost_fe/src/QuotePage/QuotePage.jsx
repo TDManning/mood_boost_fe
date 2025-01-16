@@ -1,9 +1,12 @@
 import "./QuotePage.css";
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-function QuotePage() {
+function QuotePage({user, logUserActivity}) {
   const [quote, setQuote] = useState(null)
+
+  function handleClick() {
+    logUserActivity(user, 5)
+  }
 
   function fetchQuote() {
     fetch('https://api.realinspire.tech/v1/quotes/random')
@@ -38,7 +41,11 @@ function QuotePage() {
               <span id="quote-content">{quote.content}</span>
               <span id="quote-author">{quote.author}</span>
             </h2>
-            <button className="new-quote" onClick={fetchQuote}>Generate New Quote</button>
+            <button className="new-quote" onClick={() => {
+              fetchQuote()
+              handleClick()
+            }}>
+            Generate New Quote</button>
           </div>
         </>
       ) : (

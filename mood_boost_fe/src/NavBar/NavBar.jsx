@@ -6,7 +6,7 @@ import Modal from '../Modal/Modal';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({user, setUser}) {
   const [modalOpen, setModalOpen] = useState(false)
   const [userLoggedIn, setUserLoggedIn] = useState(false)
 
@@ -65,6 +65,8 @@ function NavBar() {
          onClose={handleCloseModal} 
          resetToSignIn={modalOpen}
          onLoginSuccess={() => setUserLoggedIn(true)}
+         user={user}
+         setUser={setUser}
           />
       </div>
     )

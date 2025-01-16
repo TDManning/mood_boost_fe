@@ -6,17 +6,43 @@ import JokePage from './JokePage/JokePage';
 import BreathingPage from './BreathingPage/BreathingPage';
 import HomePage from './HomePage/HomePage';
 import UserProfile from './UserProfile/UserProfile'
+import { useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState(19)
+
+  function logUserActivity(userId, activityId) {
+    fetch(`http://localhost:5000/api/v1/users/${userId}/activities`, {
+      method: 'POST',
+      body: JSON.stringify({
+        activity_id: activityId
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+        }
+    })
+      .then(async (response) => {
+        console.log(response)
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw errorData;
+      }
+      return response.json()
+      })
+        .catch((error) => {
+          console.log(error)
+      })
+  }
+
   return (
     <>
-      < NavBar />
+      < NavBar setUser={setUser}/>
       <div className="page-content">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/quote" element={<QuotePage />} />
-        <Route path="/joke" element={<JokePage />} />
-        <Route path="/breathing" element={<BreathingPage />} />
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/quote" element={<QuotePage user={user} logUserActivity={logUserActivity}/>} />
+        <Route path="/joke" element={<JokePage user={user} logUserActivity={logUserActivity}/>} />
+        <Route path="/breathing" element={<BreathingPage user={user} logUserActivity={logUserActivity}/>} />
         <Route path="/user" element={<UserProfile />} />
       </Routes>
       </div>

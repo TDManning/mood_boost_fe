@@ -3,8 +3,12 @@ import "./BreathingPage.css";
 import { useState } from "react";
 
 
-function BreathingPage() {
+function BreathingPage({user, logUserActivity}) {
   const [isBreathing, setIsBreathing] = useState(false);
+
+  function handleClick() {
+    logUserActivity(user, 6)
+  }
 
   const handleStartBreathing = () => {
     setIsBreathing(true);
@@ -16,7 +20,10 @@ function BreathingPage() {
             <FloatingCircles class="background"/>
             {!isBreathing && (
                 <button id="start-button" classname="start-button"
-               onClick={handleStartBreathing}
+                onClick={() => {
+                  handleStartBreathing()
+                  handleClick()
+                 }}
                >Start Breathing Exercise</button>
             )}
               {isBreathing && (

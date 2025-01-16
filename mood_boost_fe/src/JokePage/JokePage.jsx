@@ -1,10 +1,13 @@
 import './JokePage.css';
-import { Link } from 'react-router-dom';
 import { useState, useEffect }  from 'react';
 
-function JokePage({joke}) {
+function JokePage({joke, user, logUserActivity}) {
   const [currentJoke, setJoke] = useState(null);
   const [error, setError] = useState(null);
+
+  function handleClick() {
+    logUserActivity(user, 4)
+  }
 
   useEffect(() => {
     getjoke()
@@ -41,7 +44,12 @@ function JokePage({joke}) {
           <section className="joke-area">
             <h3>{currentJoke}</h3>
           </section> 
-                <button className='get-joke' aria-label="get a joke" onClick={() => getjoke()}>
+                <button className='get-joke' aria-label="get a joke" onClick={() => {
+                  getjoke()
+                  handleClick()
+                }
+                }
+                >
                   Tell Me A Joke
                 </button>
         </div>
