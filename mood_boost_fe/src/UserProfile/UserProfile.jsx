@@ -1,40 +1,39 @@
 import "./UserProfile.css";
-import { Link } from 'react-router-dom';
-import {useState, useEffect} from 'react';
-import UserInfo from "./UserInfo";
+import { useState, useEffect } from "react";
 import UserActivityList from "./UserActivityList";
 
 const UserProfile = ({ userId }) => {
-  const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUserActivities = async () => {
       try {
-        const userResponse = await fetch(`https://localhost:3000/api/v1/users/${userId}`);
-        const userData = await userResponse.json();
-        setUser(userData);
-
-        const activitiesResponse = await fetch(`/api/v1/users/${userId}/activities`);
-        const activitiesData = await activitiesResponse.json();
-        setActivities(activitiesData);
+        const response = await fetch(`https://mood-boost-fe.onrender.com/api/v1/users/${userId}/activities`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch activities");
+        }
+        const data = await response.json();
+        setActivities(data);
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error("Error fetching user activities:", error);
       } finally {
         setLoading(false);
       }
     };
-    fetchUserData();
+
+    fetchUserActivities();
   }, [userId]);
 
   if (loading) return <p>Loading...</p>;
-  if (!user) return <p>User not found</p>;
 
   return (
-    <div>
-      <UserInfo user={user} />
-      <UserActivityList activities={activities} />
+    <div className="userHistory">
+      {activities.length > 0 ? (
+        <UserActivityList activities={activities} />
+      ) : (
+        <p>No activities found for this user.</p>
+      )}
     </div>
   );
 };
