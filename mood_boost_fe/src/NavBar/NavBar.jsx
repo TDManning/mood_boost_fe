@@ -29,7 +29,7 @@ function NavBar() {
   }
 
     return (
-      <div>
+      <div className="navbar-wrapper">
         <nav className="navbar">
             <NavLink to="/" element={ HomePage } className="home">
                 <img className="homebtn" src={ homebtn } alt="Back to home page" />
