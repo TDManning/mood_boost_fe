@@ -45,7 +45,7 @@
 }
 
 .new-quote {
-  background-color: #f44034;
+  background: linear-gradient(to bottom, #ff5724, #ff9900); 
   border: none;
   color: white;
   padding: 10px 20px;
