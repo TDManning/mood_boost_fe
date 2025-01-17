@@ -1,3 +1,4 @@
+import FloatingCircles from '../HomePage/FloatingCircles';
 import './JokePage.css';
 import { useState, useEffect }  from 'react';
 
@@ -40,10 +41,14 @@ function JokePage({joke, user, logUserActivity}) {
     }
       return (
         <div className="joke-page">
+
+            <FloatingCircles className="background"/>
+
           <div className="joke-header">
             <h1 id="joke-title">Laugh It Up: Your Daily Dose of Chuckles</h1>
             <p id="joke-description">Welcome to the joke page, where bad puns, dad jokes, and knee-slappers come to find their forever home! Whether you're looking for a laugh-out-loud moment or just an eye-roll-worthy groan, we’ve got you covered.</p>
           </div>
+
           <section className="joke-area">
             <h2 className="current-joke">{currentJoke}</h2>
           </section> 
