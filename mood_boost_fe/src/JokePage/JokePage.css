@@ -17,6 +17,23 @@ body, html {
     position: relative;
 }
 
+.joke-header {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+}
+
+#joke-title {
+  color: #f44034;
+  width: 100%;
+  margin-top: 50px;
+}
+
+#joke-description {
+  color: #ff5724;
+}
+
 .get-joke {
     background: linear-gradient(to bottom, #ff5724, #ff9900); 
     border: none;
@@ -58,6 +75,7 @@ body, html {
     border-radius: 20px;
 }
 
+
 .background {
     position: absolute;
     top: 0;
@@ -65,6 +83,10 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: 0;
+
+.current-joke {
+  background: transparent;
+
 }
 
 @media (max-width: 700px) {
