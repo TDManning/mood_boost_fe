@@ -30,16 +30,17 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
           const errorData = await response.json();
           throw errorData;
       }
+      console.log(response)
       return response.json()
       })
         .then((data) => {
-          if (data.data.id) {
-            const userId = data.data.id
-            setUser(userId)
-          }
+          const userId = data.data.id
+          const userUserName = data.data.attributes.username
+          setUser(userId)
+          setUserName(userUserName)
+          onLoginSuccess(userId, userUserName)
           setSuccessMessage(createAccount ? 'User created successfully. You are logged in.' : 'You are logged in')
           setErrorMessage('')
-          onLoginSuccess();
           onClose();
       })
         .catch((error) => {
