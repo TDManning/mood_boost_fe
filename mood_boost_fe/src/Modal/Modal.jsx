@@ -13,6 +13,11 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
 
+  useEffect(() => {
+    clearFields()
+    clearMessage()
+  }, [modalOpen])
+
   function createNewUser() {
     const endpoint = createAccount ? 'http://localhost:5000/api/v1/users' : 'http://localhost:5000/api/v1/sessions'
 
@@ -84,15 +89,12 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
           if (!validator.isEmail(email)) {
             setSuccessMessage('')
             setErrorMessage('Invalid email address')
-            clearFields()
         } else if (!validator.isStrongPassword(password)) {
           setSuccessMessage('')
           setErrorMessage('Your password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one symbol')
-          clearFields()
         } else if (!first_name.length <= 20) {
           setSuccessMessage('')
           setErrorMessage('First name cannot exceed 20 characters')
-          clearFields()
         }
       }
     } else {
@@ -111,7 +113,11 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
   return (
     <div className="modal"> 
       <div className="sign-in">
-        <button className="close-modal" onClick={onClose}>
+        <button className="close-modal" onClick={() => {
+          onClose()
+          clearMessage()
+          clearFields()
+        }}>
           <X />
         </button>
         <h1>{createAccount ? 'Create Account' : 'Sign In'}</h1>
