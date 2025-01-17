@@ -6,7 +6,7 @@ ul {
   width: 100vw;
   min-width: 100vw;
   background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063);
-  display: flex; /* To control the navbar's background for mobile devices */
+  display: flex;
   justify-content: center;
   position: relative;
 }
@@ -19,7 +19,6 @@ ul {
 .navbar {
   display: flex;
   align-items: center;
-  /* background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); */
   height: 150px;
   width: 100%;
   padding: 0 60px;
