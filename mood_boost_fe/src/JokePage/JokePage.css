@@ -25,13 +25,13 @@ body, html {
 }
 
 #joke-title {
-  color: #f44034;
+  color: #ffdab9;
   width: 100%;
   margin-top: 50px;
 }
 
 #joke-description {
-  color: #ff5724;
+  color:white;
 }
 
 .get-joke {
@@ -60,8 +60,8 @@ body, html {
     box-shadow: 
       -8px -8px 20px #fff9, 
       -6px -6px 6px #fff9,
-      8px 8px 20px #0001, 
-      5px 5px 6px #0001, 
+      8px 8px 20px #fff9, 
+      6px 6px 6px #fff9,
       inset 0px 0px 0px #fff9,
       inset 0px 0px 0px #0001, 
       inset 0px 0px 0px #fff9,
