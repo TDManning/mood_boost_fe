@@ -1,10 +1,10 @@
 .moving-background {
   position: absolute;
-  top: -20%; 
+  top: -8%; 
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2; 
+  z-index: 0; 
   pointer-events: none; 
 }
 
@@ -48,3 +48,6 @@
   animation-delay: 4s;
 }
 
+.moving-background .circle.third {
+  top: 20%; /* Ensures this rule applies */
+}
