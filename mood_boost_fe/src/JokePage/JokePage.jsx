@@ -1,3 +1,4 @@
+import FloatingCircles from '../HomePage/FloatingCircles';
 import './JokePage.css';
 import { useState, useEffect }  from 'react';
 
@@ -40,7 +41,7 @@ function JokePage({joke, user, logUserActivity}) {
     }
       return (
         <div className="joke-page">
-            <h1>Joke Page</h1>
+            <FloatingCircles className="background"/>
           <section className="joke-area">
             <h3>{currentJoke}</h3>
           </section> 

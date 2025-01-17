@@ -11,6 +11,7 @@ h2 {
     background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063 );
     margin: 0;
 }
+
 .breathing-page {
     display: flex;
     justify-content: center;
