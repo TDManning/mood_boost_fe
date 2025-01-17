@@ -195,7 +195,7 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
       </div>
       <div className="submit">
         <button className="login-submit" type="submit">
-          {createAccount ? 'Sign Up' : 'Login'}
+          {createAccount ? 'Submit' : 'Login'}
         </button>
         <div className="need-account">
           <button onClick={() => {

@@ -124,7 +124,7 @@ input:hover, input:focus {
   height: 40px;
   border: none;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: lightyellow;
   color: #f44034;
   cursor: pointer;
 }
