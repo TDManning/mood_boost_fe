@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      < NavBar setUser={setUser}/>
+      < NavBar user={user} setUser={setUser}/>
       <div className="page-content">
       <Routes>
         <Route path="/" element={<HomePage />}/>

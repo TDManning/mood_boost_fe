@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar({user, setUser}) {
   const [modalOpen, setModalOpen] = useState(false)
-  const [userLoggedIn, setUserLoggedIn] = useState(false)
+  const [username, setUserName] = useState('')
 
   useEffect(() => {
     const pageContent = document.querySelector('.page-content')
@@ -30,8 +30,14 @@ function NavBar({user, setUser}) {
   }
 
   function handleLogout() {
-    setUserLoggedIn(false);
+    setUser(null)
+    setUserName('')
     console.log("User Logged Out")
+  }
+
+  function handleLoginSuccess(userId, userUserName) {
+    setUser(userId)
+    setUserName(userUserName)
   }
 
     return (
@@ -51,22 +57,30 @@ function NavBar({user, setUser}) {
               </ul>
             </li>
           </ul>
-          {userLoggedIn ? (
-          <button className="logout" onClick={handleLogout}>
-            <LogOut className="logout-icon" />Logout
+          <button 
+            className="login" 
+            onClick={user ? handleLogout : handleOpenModal}
+            >
+              {user ? (
+              <div>
+                <LogOut className="logout-icon" />
+                Logged in as {username}. Logout 
+              </div>
+              ) : (
+                <div>
+                  <LogIn className="login-icon" />
+                  Login/Register
+                  </div>
+              )}
           </button>
-        ) : (
-          <button className="login" onClick={handleOpenModal}>
-            <LogIn className="login-icon" />Login/Register
-          </button>
-        )}
         </nav>
         <Modal modalOpen={modalOpen}
-         onClose={handleCloseModal} 
-         resetToSignIn={modalOpen}
-         onLoginSuccess={() => setUserLoggedIn(true)}
-         user={user}
-         setUser={setUser}
+          onClose={handleCloseModal} 
+          resetToSignIn={modalOpen}
+          onLoginSuccess={handleLoginSuccess}
+          user={user}
+          setUser={setUser}
+          setUserName={setUserName}
           />
       </div>
     )
