@@ -1,5 +1,6 @@
 import "./QuotePage.css";
 import { useState, useEffect } from 'react';
+import FloatingCircles from "../HomePage/FloatingCircles";
 
 function QuotePage({user, logUserActivity}) {
   const [quote, setQuote] = useState(null)
@@ -30,6 +31,7 @@ function QuotePage({user, logUserActivity}) {
 
   return (
     <div className="quote-page">
+      <FloatingCircles className="quote-circles"/>
       {quote ? (
         <>
           <div className="quote-header">

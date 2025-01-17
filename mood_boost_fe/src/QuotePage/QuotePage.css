@@ -2,6 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.moving-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.quote-circles .circle.first {
+  background: rgb(255, 153, 0);
+}
+
+.quote-circles .circle.second {
+  background: rgb(255, 184, 77); 
+}
+
+.quote-circles .circle.third {
+  background: rgb(255, 87, 36); 
 }
 
 .quote-header {
