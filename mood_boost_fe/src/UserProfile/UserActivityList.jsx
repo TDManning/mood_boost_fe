@@ -1,5 +1,7 @@
 import React from "react";
 
+console.log(activities)
+
 const UserActivityList = ({ activities }) => {
   return (
     <div>
@@ -8,7 +10,7 @@ const UserActivityList = ({ activities }) => {
         {activities.map((activity) => (
           <li key={activity.id}>
             <strong>{activity.name}</strong>
-            (Completed on: {new Date(activity.completed_at).toLocaleDateString()})
+            (Completed on: {new Date(activity.created_at).toLocaleDateString()})
           </li>
         ))}
       </ul>

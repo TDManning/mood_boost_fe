@@ -32,12 +32,14 @@ function NavBar({user, setUser}) {
   function handleLogout() {
     setUser(null)
     setUserName('')
+    sessionStorage.clear()
     console.log("User Logged Out")
   }
 
   function handleLoginSuccess(userId, userUserName) {
     setUser(userId)
     setUserName(userUserName)
+    sessionStorage.setItem('userId', userId);
   }
 
     return (
