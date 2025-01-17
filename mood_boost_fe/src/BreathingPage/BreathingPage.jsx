@@ -16,7 +16,7 @@ function BreathingPage({user, logUserActivity}) {
 
   return (
       <div>
-        <h2>Breathe in and out as the circle expands and contracts</h2>
+        <h2 className="breate-instruction">Breathe in and out as the circle expands and contracts</h2>
           <section className="breathing-page">
               <FloatingCircles className="background"/>
               {!isBreathing && (
