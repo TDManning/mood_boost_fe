@@ -64,7 +64,9 @@ function NavBar({user, setUser}) {
               {user ? (
               <div>
                 <LogOut className="logout-icon" />
-                Logged in as {username}. Logout 
+                Logged in as {username}. 
+                <br></br> 
+                Logout
               </div>
               ) : (
                 <div>

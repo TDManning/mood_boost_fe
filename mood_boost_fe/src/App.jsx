@@ -9,9 +9,9 @@ import UserProfile from './UserProfile/UserProfile'
 import { useState } from 'react';
 
 function App() {
-  const [user, setUser] = useState(19)
+  const [user, setUser] = useState(null)
 
-  function logUserActivity(userId, activityId) {
+  function logUserActivity(userId = 19, activityId) {
     fetch(`http://localhost:5000/api/v1/users/${userId}/activities`, {
       method: 'POST',
       body: JSON.stringify({
@@ -40,9 +40,9 @@ function App() {
       <div className="page-content">
       <Routes>
         <Route path="/" element={<HomePage />}/>
-        <Route path="/quote" element={<QuotePage user={user} logUserActivity={logUserActivity}/>} />
-        <Route path="/joke" element={<JokePage user={user} logUserActivity={logUserActivity}/>} />
-        <Route path="/breathing" element={<BreathingPage user={user} logUserActivity={logUserActivity}/>} />
+        <Route path="/quote" element={<QuotePage user={user || 19} logUserActivity={logUserActivity}/>} />
+        <Route path="/joke" element={<JokePage user={user || 19} logUserActivity={logUserActivity}/>} />
+        <Route path="/breathing" element={<BreathingPage user={user || 19}logUserActivity={logUserActivity}/>} />
         <Route path="/user" element={<UserProfile />} />
       </Routes>
       </div>
