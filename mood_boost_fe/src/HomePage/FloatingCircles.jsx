@@ -1,9 +1,9 @@
 import React from "react";
 import "./FloatingCircles.css";
 
-const FloatingCircles = () => {
+const FloatingCircles = ({ className = ''}) => {
   return (
-    <div className="moving-background">
+    <div className={`moving-background ${className}`}>
       <div
         className="circle first"
         style={{ width: "100px", height: "100px", top: "20%", left: "10%" }}
