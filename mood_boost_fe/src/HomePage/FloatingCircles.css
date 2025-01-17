@@ -48,6 +48,3 @@
   animation-delay: 4s;
 }
 
-.moving-background .circle.third {
-  top: 20%; /* Ensures this rule applies */
-}
