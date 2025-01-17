@@ -57,5 +57,3 @@ function JokePage({joke, user, logUserActivity}) {
   }
 
 export default JokePage;
-
-
