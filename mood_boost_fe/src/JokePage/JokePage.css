@@ -5,6 +5,23 @@
     flex-direction: column;
 }
 
+.joke-header {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+}
+
+#joke-title {
+  color: #f44034;
+  width: 100%;
+  margin-top: 50px;
+}
+
+#joke-description {
+  color: #ff5724;
+}
+
 .get-joke {
     background: linear-gradient(to bottom, #ff5724, #ff9900); 
     border: none;
@@ -44,6 +61,10 @@
     width: 70%;
     overflow-wrap: break-word;
     border-radius: 20px;
+}
+
+.current-joke {
+  background: transparent;
 }
 
 @media (max-width: 700px) {
