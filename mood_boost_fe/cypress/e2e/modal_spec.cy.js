@@ -34,8 +34,8 @@ describe('Modal Spec', () => {
       });
     }).as('loginRequest');
 
-    cy.get('.username').type('testuser');
-    cy.get('.password').type('password123');
+    cy.get('.username').type('apu_nahasapeemapetilon');
+    cy.get('.password').type('securepassword1');
     cy.get('.login-submit').click();
 
     cy.wait('@loginRequest').then((interception) => {

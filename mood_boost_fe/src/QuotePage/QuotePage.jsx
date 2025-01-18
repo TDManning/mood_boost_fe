@@ -6,7 +6,7 @@ function QuotePage({user, logUserActivity}) {
   const [quote, setQuote] = useState(null)
 
   function handleClick() {
-    logUserActivity(user, 5)
+    logUserActivity(user, 20)
   }
 
   function fetchQuote() {

@@ -7,7 +7,7 @@ function JokePage({joke, user, logUserActivity}) {
   const [error, setError] = useState(null);
 
   function handleClick() {
-    logUserActivity(user, 4)
+    logUserActivity(user, 19)
   }
 
   useEffect(() => {
