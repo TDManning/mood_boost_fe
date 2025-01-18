@@ -20,8 +20,8 @@ const UserProfile = ( ) => {
     const fetchUserActivities = async () => {
       try {
         console.log("Fetching activities...");
-        const response = await fetch(`https://mood-boost-fe.onrender.com/api/v1/users/${userId}/activities`);
-
+        const response = await fetch(`https://mood-boost-be.onrender.com/api/v1/users/${userId}/activities`);
+console.log(response)
         if (!response.ok) {
           throw new Error("Failed to fetch activities");
         }
