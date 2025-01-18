@@ -11,15 +11,7 @@ import { useState } from 'react';
 function App() {
   const [user, setUser] = useState(null)
 
-  const userId = sessionStorage.getItem("userId") || null;
-
   function logUserActivity(userId, activityId) {
-    const payload = {
-      user_activity: {
-        user_id: userId,
-        activity_id: activityId,
-      },
-    };
     fetch(`https://mood-boost-be.onrender.com/api/v1/users/${userId}/activities`, {
       method: 'POST',
       body: JSON.stringify({
