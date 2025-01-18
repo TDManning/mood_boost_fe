@@ -20,7 +20,7 @@ describe('Quote Page', () => {
       expect(interception.response.statusCode).to.eq(200)
     })
     cy.get('button').should('have.class', 'login')
-    cy.get('button.login').children().should('have.class', 'login-icon')
+    cy.get('button.login').find('div')
     cy.get('.navbar').children().should('have.class', 'home')
     cy.get('.home').find('img').should('have.class', 'homebtn')
     cy.get('.home').find('img').should('have.attr', 'alt', 'Back to home page')

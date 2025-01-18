@@ -1,6 +1,6 @@
 describe('NavBar Spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('https://mood-boost-fe.onrender.com')
   } )
 
   it('Has A NavBar', () => {
