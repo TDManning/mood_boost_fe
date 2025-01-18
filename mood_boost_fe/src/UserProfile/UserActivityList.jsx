@@ -1,7 +1,5 @@
 import React from "react";
 
-console.log(activities)
-
 const UserActivityList = ({ activities }) => {
   return (
     <div>

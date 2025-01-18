@@ -16,7 +16,7 @@ function App() {
   function logUserActivity(userId, activityId) {
     const payload = {
       user_activity: {
-        user_id: parseInt(user.id, 10),
+        user_id: userId,
         activity_id: activityId,
       },
     };
@@ -50,8 +50,8 @@ function App() {
         <Route path="/" element={<HomePage />}/>
         <Route path="/quote" element={<QuotePage user={user || 19} logUserActivity={logUserActivity}/>} />
         <Route path="/joke" element={<JokePage user={user || 19} logUserActivity={logUserActivity}/>} />
-        <Route path="/breathing" element={<BreathingPage user={user || 19}logUserActivity={logUserActivity}/>} />
-        <Route path="/user" element={<UserProfile />} />
+        <Route path="/breathing" element={<BreathingPage user={user || 19} logUserActivity={logUserActivity}/>} />
+        <Route path="/user" element={<UserProfile user={user || 19} />} />
       </Routes>
       </div>
     </>

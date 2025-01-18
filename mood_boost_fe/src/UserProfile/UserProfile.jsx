@@ -3,12 +3,15 @@ import { useState, useEffect } from "react";
 import UserActivityList from "./UserActivityList";
 
 const UserProfile = ( ) => {
+  console.log("UserProfile is rendered");
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const userId = sessionStorage.getItem('userId');
-
+  console.log("userId from sessionStorage:", userId);
+  
   useEffect(() => {
+    console.log("useEffect is triggered");
     if (!userId) {
       console.error("userId is missing or undefined");
       return;
@@ -16,6 +19,7 @@ const UserProfile = ( ) => {
 
     const fetchUserActivities = async () => {
       try {
+        console.log("Fetching activities...");
         const response = await fetch(`http://localhost:5000/api/v1/users/${userId}/activities`);
 
         if (!response.ok) {
@@ -23,7 +27,8 @@ const UserProfile = ( ) => {
         }
 
         const data = await response.json();
-        setActivities(data);
+        console.log("Fetched activities:", data);
+        setActivities(data.activities);
       } catch (error) {
         console.error("Error fetching user activities:", error);
       } finally {
