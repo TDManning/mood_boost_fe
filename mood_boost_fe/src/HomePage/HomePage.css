@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start; 
   text-align: center;
-  margin-top: 150px;
+  margin-top: 125px;
   padding: 0 15rem; 
   background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); 
   height: calc(100vh + 100px); 
@@ -51,6 +51,7 @@ h2 {
   font-size: 1.8rem;
   color: #ffdab9; 
   margin-bottom: 1rem;
+  background: transparent;
 }
 
 p {

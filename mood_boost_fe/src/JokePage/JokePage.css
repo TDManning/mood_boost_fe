@@ -1,8 +1,37 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    z-index: 0;
+}
+
 .joke-page {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    height: 85vh;
+    background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063 );
+    overflow: hidden;
+    position: relative;
+}
+
+.joke-header {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+}
+
+#joke-title {
+  color: #ffdab9;
+  width: 100%;
+  margin-top: 50px;
+}
+
+#joke-description {
+  color:white;
 }
 
 .get-joke {
@@ -31,8 +60,8 @@
     box-shadow: 
       -8px -8px 20px #fff9, 
       -6px -6px 6px #fff9,
-      8px 8px 20px #0001, 
-      5px 5px 6px #0001, 
+      8px 8px 20px #fff9, 
+      6px 6px 6px #fff9,
       inset 0px 0px 0px #fff9,
       inset 0px 0px 0px #0001, 
       inset 0px 0px 0px #fff9,
@@ -44,6 +73,21 @@
     width: 70%;
     overflow-wrap: break-word;
     border-radius: 20px;
+}
+
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.current-joke {
+  background: transparent;
+
 }
 
 @media (max-width: 700px) {
