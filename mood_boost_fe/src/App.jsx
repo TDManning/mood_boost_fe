@@ -11,7 +11,15 @@ import { useState } from 'react';
 function App() {
   const [user, setUser] = useState(null)
 
-  function logUserActivity(userId = 19, activityId) {
+  const userId = sessionStorage.getItem("userId") || null;
+
+  function logUserActivity(userId, activityId) {
+    const payload = {
+      user_activity: {
+        user_id: userId,
+        activity_id: activityId,
+      },
+    };
     fetch(`http://localhost:5000/api/v1/users/${userId}/activities`, {
       method: 'POST',
       body: JSON.stringify({
@@ -42,8 +50,8 @@ function App() {
         <Route path="/" element={<HomePage />}/>
         <Route path="/quote" element={<QuotePage user={user || 19} logUserActivity={logUserActivity}/>} />
         <Route path="/joke" element={<JokePage user={user || 19} logUserActivity={logUserActivity}/>} />
-        <Route path="/breathing" element={<BreathingPage user={user || 19}logUserActivity={logUserActivity}/>} />
-        <Route path="/user" element={<UserProfile />} />
+        <Route path="/breathing" element={<BreathingPage user={user || 19} logUserActivity={logUserActivity}/>} />
+        <Route path="/user" element={<UserProfile user={user || 19} />} />
       </Routes>
       </div>
     </>
