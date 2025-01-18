@@ -1,6 +1,6 @@
 describe('Homepage Spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('https://mood-boost-fe.onrender.com')
   } )
 
   it('Has A NavBar', () => {
@@ -37,7 +37,7 @@ describe('Homepage Spec', () => {
   it('Contains Homepage Elements', () => {
     cy.get('h1').contains('Welcome to Mood Boost')
     cy.get('h2').contains('Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.')
-    cy.get('p').contains('Click below to see a random page or use the menu to navigate to different pages')
+    cy.get('p').contains('Click below to see a random page or use the Mood Boost dropdown menu to navigate to different pages')
     cy.get('.basic-spinner').should('exist')
     cy.get('.spinner-outer').should('exist')
     cy.get('.spinner-text').should('exist')

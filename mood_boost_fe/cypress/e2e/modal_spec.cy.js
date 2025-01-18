@@ -1,6 +1,6 @@
 describe('Modal Spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('https://mood-boost-fe.onrender.com');
     cy.get('button.login').click(); //
     cy.get('.modal').should('be.visible'); 
   });
