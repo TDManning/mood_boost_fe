@@ -48,10 +48,10 @@ function App() {
       <div className="page-content">
       <Routes>
         <Route path="/" element={<HomePage />}/>
-        <Route path="/quote" element={<QuotePage user={user || 47} logUserActivity={logUserActivity}/>} />
-        <Route path="/joke" element={<JokePage user={user || 47} logUserActivity={logUserActivity}/>} />
-        <Route path="/breathing" element={<BreathingPage user={user || 47} logUserActivity={logUserActivity}/>} />
-        <Route path="/user" element={<UserProfile user={user || 47} />} />
+        <Route path="/quote" element={<QuotePage user={user || 54} logUserActivity={logUserActivity}/>} />
+        <Route path="/joke" element={<JokePage user={user || 54} logUserActivity={logUserActivity}/>} />
+        <Route path="/breathing" element={<BreathingPage user={user || 54} logUserActivity={logUserActivity}/>} />
+        <Route path="/user" element={<UserProfile user={user || 54} />} />
       </Routes>
       </div>
     </>
