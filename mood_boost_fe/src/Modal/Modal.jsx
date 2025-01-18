@@ -19,7 +19,7 @@ function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
   }, [modalOpen])
 
   function createNewUser() {
-    const endpoint = createAccount ? 'http://localhost:5000/api/v1/users' : 'http://localhost:5000/api/v1/sessions'
+    const endpoint = createAccount ? 'https://mood-boost-be.onrender.com/api/v1/users' : 'https://mood-boost-be.onrender.com/api/v1/sessions'
 
     const body = createAccount ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }}) : JSON.stringify({ username, password })
 
