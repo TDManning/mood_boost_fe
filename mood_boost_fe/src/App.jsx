@@ -20,7 +20,7 @@ function App() {
         activity_id: activityId,
       },
     };
-    fetch(`http://localhost:5000/api/v1/users/${userId}/activities`, {
+    fetch(`https://mood-boost-be.onrender.com/api/v1/users/${userId}/activities`, {
       method: 'POST',
       body: JSON.stringify({
         activity_id: activityId
