@@ -8,7 +8,7 @@ function BreathingPage({user, logUserActivity}) {
   const [breathingText, setBreathingText] = useState("Inhale Positivity");
 
   function handleClick() {
-    logUserActivity(user, 21)
+    logUserActivity(user, 24)
   }
 
   const handleStartBreathing = () => {
