@@ -135,7 +135,6 @@ p {
   }
 }
 
-/* Responsive Design for Tablets */
 @media (max-width: 768px) {
   .home-page {
     padding: 0 5rem;
@@ -161,7 +160,6 @@ p {
   }
 }
 
- /* Responsive design for a phone */
 @media (max-width: 480px) {
   .home-page {
     padding: 0 2rem;
