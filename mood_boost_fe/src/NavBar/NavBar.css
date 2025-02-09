@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Pacifico&family=Raleway:wght@400;700&display=swap');
 
-/* 🌟 GLOBAL STYLES */
 body, html {
   font-family: "Inter", sans-serif;
   margin: 0;
@@ -10,7 +9,6 @@ body, html {
   width: 100%;
 }
 
-/* 🌟 NAVIGATION BAR */
 .navbar-wrapper {
   width: 100%;
   background: linear-gradient(145deg, #ffffff, #eef5ff);
@@ -19,10 +17,9 @@ body, html {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 0.6rem 1rem; /* ✅ Reduced padding for a compact navbar */
+  padding: 0.6rem 1rem; 
 }
 
-/* ✅ Flex container for navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -32,23 +29,21 @@ body, html {
   position: relative;
 }
 
-/* 🌟 HOME & DROPDOWN MENU - SIDE BY SIDE */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 1rem; /* ✅ Ensures spacing between Home & Dropdown */
+  gap: 0.8rem;
 }
 
-/* 🌟 HOME BUTTON */
 .home {
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #004aad;
   transition: color 0.3s ease-in-out;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 8px;
 }
 
@@ -57,34 +52,32 @@ body, html {
 }
 
 .homebtn {
-  width: 32px;
-  height: 32px;
-  margin-right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  margin-right: 0.4rem;
   filter: brightness(0) saturate(100%) invert(27%) sepia(99%) saturate(547%) hue-rotate(180deg) brightness(90%) contrast(90%);
 }
 
-/* 🌟 NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.2rem;
+  gap: 0.8rem; 
   position: relative;
 }
 
-/* 🌟 MOOD BOOSTS DROPDOWN */
 .mood-boosts-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.2rem;
+  gap: 0.3rem; 
+  font-size: 1.4rem;
   font-weight: 600;
+  font-family: 'Pacifico', cursive;
   color: #004aad;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
   position: relative;
 }
 
-/* 🌟 FIXED: Dropdown now appears directly below "Mood Boosts" */
 .dropdown {
   display: none;
   position: absolute;
@@ -95,15 +88,16 @@ body, html {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 0.5rem 0;
-  width: 180px;
+  width: 180px; 
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  text-align: left;
-  list-style: none; /* ✅ Removes bullet points */
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  list-style: none;
+  white-space: nowrap;
 }
 
-/* 🌟 Dropdown appears when hovering over Mood Boosts */
 .nav-links li:hover .dropdown,
 .dropdown:hover {
   display: block;
@@ -111,25 +105,23 @@ body, html {
   visibility: visible;
 }
 
-/* 🌟 INDIVIDUAL NAV LINKS */
 .navbar_boosts {
-  padding: 0.75rem 1.2rem;
+  padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: left;
   color: #333;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   transition: background 0.3s ease-in-out;
   border-radius: 6px;
-  list-style: none; /* ✅ Removes bullet points */
+  font-family: "Inter", sans-serif;
 }
 
 .navbar_boosts:hover {
   background: #e3f2fd;
 }
 
-/* 🌟 LOGIN BUTTON */
 .login {
   padding: 0.5rem 1rem;
   background: #004aad;
@@ -140,113 +132,10 @@ body, html {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
+  font-family: "Inter", sans-serif;
 }
 
-/* ✅ LOGIN BUTTON HOVER */
 .login:hover {
   background: #0077b6;
 }
 
-/* 🌟 RESPONSIVE NAVIGATION */
-
-/* ✅ For Tablets & Smaller Screens */
-@media (max-width: 768px) {
-  .navbar-wrapper {
-    padding: 0.5rem 0.8rem; /* ✅ Makes navbar smaller */
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .navbar-left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem; /* ✅ Keeps Home & Dropdown aligned */
-  }
-
-  .nav-links {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .mood-boosts-title {
-    font-size: 1rem;
-  }
-
-  .dropdown {
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .navbar_boosts {
-    background: white;
-    border-radius: 6px;
-    text-align: center;
-    padding: 10px;
-  }
-
-  .login {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px; /* ✅ Moves Login button below Home & Dropdown */
-  }
-}
-
-/* ✅ For Mobile Screens */
-@media (max-width: 480px) {
-  .navbar-wrapper {
-    padding: 0.4rem 0.8rem; /* ✅ Navbar is now smaller */
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 0.3rem 0;
-    gap: 0.6rem;
-  }
-
-  .navbar-left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem; /* ✅ Keeps Home & Dropdown close */
-  }
-
-  .home {
-    font-size: 1rem; /* ✅ Smaller Home button text */
-    padding: 0.4rem 0.8rem;
-  }
-
-  .homebtn {
-    width: 28px;
-    height: 28px;
-  }
-
-  .mood-boosts-title {
-    font-size: 0.9rem;
-  }
-
-  .nav-links {
-    gap: 0.8rem;
-  }
-
-  .dropdown {
-    width: 180px;
-  }
-
-  .login {
-    width: 90%;
-    text-align: center;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.95rem;
-    margin-top: 12px; /* ✅ Moves Login button below Home & Dropdown */
-  }
-}

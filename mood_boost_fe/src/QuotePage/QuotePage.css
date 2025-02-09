@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Pacifico&family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap');
 .quote-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff, #eef5ff 30%, #cfe1ff 70%, #b3d4ff);
+  padding: 0;background: linear-gradient(to top, 
+  #FFEBB2 10%,  
+  #B8E2FF 50%,  
+  #FFFFFF 100%  
+);
   padding-top: 22vh;
   position: relative;
   text-align: center;
@@ -15,9 +18,9 @@
 }
 
 #quote-h1 {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Pacifico', cursive;
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 200;
   color: #004aad;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   margin-bottom: 2vh;
@@ -33,7 +36,6 @@
   max-width: 75%;
   padding: 0 15px;
   margin-bottom: 4vh;
-
   display: flex;
   justify-content: center;
   align-items: center;

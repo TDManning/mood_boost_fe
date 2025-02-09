@@ -14,7 +14,11 @@ body, html {
   align-items: center;
   width: 100vw; 
   height: 100vh; 
-  background: linear-gradient(180deg, #ffffff, #eef5ff 30%, #cfe1ff 70%, #b3d4ff);
+  background: linear-gradient(to top, 
+  #FFEBB2 10%,  
+  #B8E2FF 50%,  
+  #FFFFFF 100%  
+);
   overflow: hidden;
   position: relative;
   flex-direction: column; 
@@ -30,13 +34,13 @@ body, html {
 }
 
 #start-button {
-    background: linear-gradient(to bottom, #ffb7c5, #ff9aa2);
+    background: linear-gradient(to bottom, #FFCF56, #FF914D); 
     border: none;
     color: white;
     padding: 20px;
-    font-size: 24px;
-    font-weight: 600;
-    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    font-weight: 100;
+    font-family: 'Pacifico', cursive;
     border-radius: 50%;
     width: 250px;
     height: 250px;
@@ -46,17 +50,17 @@ body, html {
     justify-content: center;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 14px rgba(255, 100, 150, 0.5);
+    box-shadow: 0 6px 14px rgba(255, 153, 51, 0.5);
     animation: bubbleFloat 3s infinite ease-in-out;
 }
 
 #start-button:hover {
-    background: linear-gradient(to bottom, #ff9aa2, #ff6f91);
+    background: linear-gradient(to bottom, #FFA500, #FF6347);
 }
 
 #start-button:active {
     transform: scale(0.95);
-    box-shadow: 0 2px 8px rgba(255, 100, 150, 0.5);
+    box-shadow: 0 2px 8px rgba(255, 102, 51, 0.5);
 }
 
 .breathing-container {
@@ -70,16 +74,16 @@ body, html {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background: radial-gradient(farthest-corner, #ff9aa2, #ff6f91);
-    box-shadow: 0 0 20px 5px rgba(255, 100, 150, 0.8);
+    background: radial-gradient(farthest-corner, #FFAE42, #FF6F61);
+    box-shadow: 0 0 20px 5px rgba(255, 200, 50, 0.8);
     animation: breathAndTextChange 10s infinite ease-in-out, colorChange 10s infinite;
 }
 
 .breathing-text {
     position: absolute;
-    font-family: "Poppins", sans-serif;
-    font-size: 22px;
-    font-weight: 600;
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    font-weight: 100;
     color: white;
     text-align: center;
     pointer-events: none;
@@ -101,24 +105,24 @@ body, html {
 @keyframes breathAndTextChange {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 20px rgba(255, 100, 150, 0.8);
+        box-shadow: 0 0 20px rgba(255, 180, 50, 0.8);
     }
     50% {
         transform: scale(3);
-        box-shadow: 0 0 40px rgba(255, 100, 150, 1);
+        box-shadow: 0 0 40px rgba(255, 120, 50, 1);
     }
     100% {
         transform: scale(0.8);
-        box-shadow: 0 0 10px rgba(255, 100, 150, 0.5);
+        box-shadow: 0 0 10px rgba(255, 90, 50, 0.5);
     }
 }
 
 @keyframes colorChange {
     0%, 50% {
-        background: radial-gradient(farthest-corner, #ff9aa2, #ff6f91);
+        background: radial-gradient(farthest-corner, #FFD27F, #FFC773, #FF9E6E); 
     }
     51%, 100% {
-        background: radial-gradient(farthest-corner, #ffb7c5, #ff9aa2);
+        background: radial-gradient(farthest-corner, #FF9E6E, #FFB68E, #FFEBB2); 
     }
 }
 

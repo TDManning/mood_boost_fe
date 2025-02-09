@@ -112,23 +112,35 @@ function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <button className="close-modal" onClick={onClose}><X /></button>
         <h1 className="modal-title">{createAccount ? 'Create Account' : 'Sign In'}</h1>
+        
         <form onSubmit={handleSubmit} noValidate>
           <div className="input-container">
             {createAccount && (
               <>
                 <div className="input-with-icon">
                   <PersonStanding className="input-icon" />
-                  <input type="text" placeholder="First Name (optional)" value={first_name} onChange={(e) => setFirstname(e.target.value)} />
+                  <input 
+                    type="text" 
+                    placeholder="First Name (optional)" 
+                    value={first_name} 
+                    onChange={(e) => setFirstname(e.target.value)} 
+                  />
                 </div>
                 {fieldError.first_name && <p className="field-error">{fieldError.first_name}</p>}
               </>
             )}
+  
             <div className="input-with-icon">
               <UserRound className="input-icon" />
-              <input type="text" placeholder="Username" value={username} onChange={(e) => setUserName(e.target.value)} />
+              <input 
+                type="text" 
+                placeholder="Username" 
+                value={username} 
+                onChange={(e) => setUserName(e.target.value)} 
+              />
             </div>
             {fieldError.username && <p className="field-error">{fieldError.username}</p>}
-
+  
             <div className="input-with-icon">
               <KeyRound className="input-icon" />
               <input
@@ -140,20 +152,33 @@ function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
                 onBlur={() => setShowPasswordNote(false)}  
               />
             </div>
-            {showPasswordNote && createAccount && (
-              <p className="password-note">Password must be at least 8 characters, with 1 uppercase, 1 number, and 1 symbol</p>
+            {createAccount && showPasswordNote && (
+              <p className="password-note">
+                Password must be at least 8 characters, with 1 uppercase, 1 number, and 1 symbol
+              </p>
             )}
+            
             {fieldError.password && <p className="field-error">{fieldError.password}</p>}
-
+  
             {createAccount && (
               <>
                 <div className="input-with-icon">
                   <KeyRound className="input-icon" />
-                  <input type="password" placeholder="Confirm Password" value={password_confirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+                  <input 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    value={password_confirmation} 
+                    onChange={(e) => setPasswordConfirmation(e.target.value)} 
+                  />
                 </div>
                 <div className="input-with-icon">
                   <Mail className="input-icon" />
-                  <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                  />
                 </div>
               </>
             )}
@@ -162,14 +187,24 @@ function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
             {errorMessage && <p className="error">{errorMessage}</p>}
             {successMessage && <p className="success">{successMessage}</p>}
           </div>
-          <button className="login-submit" type="submit">{createAccount ? 'Create Account' : 'Login'}</button>
-          <button className="toggle-account" onClick={() => setCreateAccount(!createAccount)}>
-            {createAccount ? 'Back to Sign In' : 'Create Account'}
-          </button>
+          <div className="button-container">
+            <button className="login-submit" type="submit">
+              {createAccount ? 'Create Account' : 'Login'}
+            </button>
+            <button 
+              className="toggle-account" 
+              type="button" 
+              onClick={() => setCreateAccount(!createAccount)}
+            >
+              {createAccount ? 'Back to Sign In' : 'Create Account'}
+            </button>
+          </div>
         </form>
       </div>
     </div>
   );
+  
+  
 }
 
 export default Modal;

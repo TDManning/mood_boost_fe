@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Pacifico&family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap');
 
 .joke-page {
   display: flex;
@@ -6,7 +6,11 @@
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff, #eef5ff 30%, #cfe1ff 70%, #b3d4ff);
+  background: linear-gradient(to top, 
+  #FFEBB2 10%,  
+  #B8E2FF 50%,  
+  #FFFFFF 100%  
+);
   padding-top: 22vh; 
   position: relative;
   text-align: center;
@@ -15,7 +19,7 @@
 }
 
 #joke-title {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Pacifico', cursive;
   font-size: 3.5rem;
   font-weight: 700;
   color: #004aad;

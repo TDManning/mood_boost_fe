@@ -1,10 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Pacifico&family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap');
+
+.animated-title {
+  font-size: clamp(3rem, 5.5vw, 5rem); 
+  font-weight: 400;
+  font-family: 'Pacifico', cursive;
+  color: #e274c8;
+  letter-spacing: 1.8px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 
 body, html {
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #f0f4ff, #d9e4ff);
+  background: linear-gradient(to top, 
+    #FFEBB2 10%,  
+    #B8E2FF 50%,  
+    #FFFFFF 100%  
+  );
   color: #333;
   width: 100%;
   display: flex;
@@ -14,21 +30,32 @@ body, html {
   min-height: 100vh;
 }
 
+
+.floating-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .home-page-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  border: 2px solid rgba(255, 128, 200, 0.5);
+  box-shadow: 
+    0px 0px 15px rgba(255, 128, 200, 0.4), 
+    0px 5px 20px rgba(0, 0, 0, 0.1);
+  padding: clamp(2.5rem, 5vw, 5rem); 
   width: 90%;
-  padding: 4rem 2rem;
-  box-sizing: border-box;
-  background: linear-gradient(145deg, #ffffff, #eef5ff);
-  border-radius: 20px;
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  animation: fadeIn 1s ease-in-out;
-  margin: 12vh auto 0 auto; 
+  max-width: 1100px;
+  min-width: 320px;
   text-align: center;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 1;
 }
 
 .home-page {
@@ -39,17 +66,8 @@ body, html {
   width: 100%;
 }
 
-.animated-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #004aad;
-  text-shadow: 1px 1px 12px rgba(0, 74, 173, 0.3);
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
-
 h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   color: #444;
   margin-bottom: 1rem;
   font-weight: 500;
@@ -57,7 +75,7 @@ h2 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   color: #555;
   line-height: 1.6;
   opacity: 0.85;
@@ -65,36 +83,39 @@ p {
 }
 
 .basic-spinner {
-  width: 130px;
-  height: 130px;
+  width: clamp(200px, 35vw, 300px); 
+  height: clamp(200px, 35vw, 300px);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   border-radius: 50%;
-  background: linear-gradient(135deg, #71c9ce, #004aad);
-  box-shadow: 0px 12px 24px rgba(0, 180, 216, 0.3);
+  background: radial-gradient(circle, 
+    rgba(0, 160, 216, 0.6) 25%, 
+    rgba(0, 140, 200, 0.4) 60%, 
+    rgba(0, 119, 182, 0.3) 100%  
+  );
+  box-shadow: 
+    inset 0 8px 16px rgba(255, 255, 255, 0.2), 
+    0 6px 14px rgba(0, 119, 182, 0.3); 
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   margin-top: 2rem;
+  position: relative;
 }
 
 .basic-spinner:hover {
-  transform: scale(1.12) rotate(8deg);
-  box-shadow: 0px 18px 36px rgba(0, 180, 216, 0.5);
+  transform: scale(1.2); 
+  box-shadow: 
+    0px 18px 36px rgba(255, 220, 50, 0.7), 
+    0px 8px 20px rgba(255, 160, 50, 0.4);
 }
 
 .spinner-outer {
-  width: 150px;
-  height: 150px;
+  width: 90%;
+  height: 90%;
   border-radius: 50%;
   border: 6px solid transparent;
-  border-top: 6px solid #004aad;
-  animation: spin 1.2s linear infinite;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-15px); }
-  to { opacity: 1; transform: translateY(0); }
+  border-top: 6px solid rgba(0, 160, 216, 0.8);
+  animation: spin 3s linear infinite; 
 }
 
 @keyframes spin {
@@ -104,67 +125,38 @@ p {
 
 @media (max-width: 1024px) {
   .home-page-wrapper {
-    padding: 3rem 1.5rem;
-    width: 95%;
-  }
-  .animated-title {
-    font-size: 2.6rem;
-  }
-  .basic-spinner {
-    width: 110px;
-    height: 110px;
+    width: 92%;
+    max-width: 950px;
+    margin-top: 5vh;
   }
 }
 
 @media (max-width: 768px) {
   .home-page-wrapper {
-    padding: 2.5rem 1.5rem;
-    width: 95%;
-    margin-top: 10vh; 
+    width: 96%;
+    max-width: 800px;
+    margin-top: 4vh;
   }
 
   .animated-title {
-    font-size: 2.4rem;
-  }
-
-  h2, p {
-    font-size: 1.2rem;
-  }
-
-  p {
-    max-width: 90%;
-  }
-
-  .basic-spinner {
-    width: 100px;
-    height: 100px;
+    font-size: 3rem;
   }
 }
 
 @media (max-width: 480px) {
   .home-page-wrapper {
+    width: 98%;
+    max-width: 95%;
+    margin-top: 2vh;
     padding: 2rem 1rem;
-    width: 96%;
-    margin-top: 8vh;
-    align-items: center; 
-    text-align: center;
   }
 
   .animated-title {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    max-width: 95%;
+    font-size: 2.5rem;
   }
 
   .basic-spinner {
-    width: 90px;
-    height: 90px;
+    width: 140px;
+    height: 140px;
   }
 }
