@@ -1,220 +1,210 @@
 import { X, UserRound, KeyRound, Mail, PersonStanding } from 'lucide-react';
-import './Modal.css'
+import './Modal.css';
 import { useState, useEffect } from 'react';
 import validator from 'validator';
 
-function Modal({modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser}) {
-  const [createAccount, setCreateAccount] = useState(false) 
-  const [first_name, setFirstname] = useState('')
-  const [username, setUserName] = useState('')
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
-  const [password_confirmation, setPasswordConfirmation] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
-  const [successMessage, setSuccessMessage] = useState('')
+function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
+  const [createAccount, setCreateAccount] = useState(false);
+  const [first_name, setFirstname] = useState('');
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password_confirmation, setPasswordConfirmation] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [fieldError, setFieldError] = useState({});
+  const [showPasswordNote, setShowPasswordNote] = useState(false); 
 
   useEffect(() => {
-    clearFields()
-    clearMessage()
-  }, [modalOpen])
+    clearFields();
+    clearMessage();
+  }, [modalOpen]);
 
   function createNewUser() {
-    const endpoint = createAccount ? 'https://mood-boost-be.onrender.com/api/v1/users' : 'https://mood-boost-be.onrender.com/api/v1/sessions'
+    const endpoint = createAccount
+      ? 'https://mood-boost-be.onrender.com/api/v1/users'
+      : 'https://mood-boost-be.onrender.com/api/v1/sessions';
 
-    const body = createAccount ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }}) : JSON.stringify({ username, password })
+    const body = createAccount
+      ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }})
+      : JSON.stringify({ username, password });
 
     fetch(endpoint, {
       method: 'POST',
       body,
-      headers: {
-        'Content-Type': 'application/json'
-        }
-      })
+      headers: { 'Content-Type': 'application/json' }
+    })
       .then(async (response) => {
         if (!response.ok) {
           const errorData = await response.json();
           throw errorData;
-      }
-      console.log(response)
-      return response.json()
-      })
-        .then((data) => {
-          const userId = data.data.id
-          const userUserName = data.data.attributes.username
-          setUser(userId)
-          setUserName(userUserName)
-          onLoginSuccess(userId, userUserName)
-          setSuccessMessage(createAccount ? 'User created successfully. You are logged in.' : 'You are logged in')
-          setErrorMessage('')
-          onClose();
-      })
-        .catch((error) => {
-          if (error.errors && error.errors[0]?.detail) {
-            setErrorMessage(error.errors[0].detail)
-            setSuccessMessage('')
-        } else {
-          setErrorMessage(createAccount ? 'Failed to create user. Please try again.' : 'Unable to log in. Please try again.')
-          setSuccessMessage('')
         }
+        return response.json();
       })
+      .then((data) => {
+        const userId = data.data.id;
+        const userUserName = data.data.attributes.username;
+        setUser(userId);
+        setUserName(userUserName);
+        onLoginSuccess(userId, userUserName);
+        setSuccessMessage(createAccount ? 'User created successfully. You are logged in.' : 'You are logged in');
+        setErrorMessage('');
+        onClose();
+      })
+      .catch((error) => {
+        setErrorMessage(error.errors?.[0]?.detail || 'Something went wrong. Try again.');
+        setSuccessMessage('');
+      });
   }
 
   function clearFields() {
-    setFirstname('')
-    setUserName('')
-    setPassword('')
-    setPasswordConfirmation('')
-    setEmail('')
+    setFirstname('');
+    setUserName('');
+    setPassword('');
+    setPasswordConfirmation('');
+    setEmail('');
+    setFieldError({});
+    setShowPasswordNote(false);
   }
 
   function clearMessage() {
-    setErrorMessage('')
-    setSuccessMessage('')
+    setErrorMessage('');
+    setSuccessMessage('');
   }
 
   useEffect(() => {
     if (resetToSignIn) {
-      setCreateAccount(false)
+      setCreateAccount(false);
     }
-  }, [resetToSignIn])
+  }, [resetToSignIn]);
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    let errors = {};
 
     if (createAccount) {
-      if (validator.isEmail(email) && validator.isStrongPassword(password) && first_name.length <= 20) {
-        createNewUser()
-        clearFields()
-        } else {
-          if (!validator.isEmail(email)) {
-            setSuccessMessage('')
-            setErrorMessage('Invalid email address')
-        } else if (!validator.isStrongPassword(password)) {
-          setSuccessMessage('')
-          setErrorMessage('Your password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one symbol')
-        } else if (!first_name.length <= 20) {
-          setSuccessMessage('')
-          setErrorMessage('First name cannot exceed 20 characters')
-        }
+      if (!validator.isStrongPassword(password)) {
+        errors.password = 'Password must be at least 8 characters, with 1 uppercase, 1 number, and 1 symbol';
+      }
+      if (first_name.length > 20) {
+        errors.first_name = 'First name cannot exceed 20 characters';
       }
     } else {
-      if (username && password) {
-        createNewUser() 
-        clearFields()
-      } else {
-        setSuccessMessage('')
-        setEmail('Both username and password are required')
+      if (!username) {
+        errors.username = 'Username is required';
       }
+      if (!password) {
+        errors.password = 'Password is required';
+      }
+    }
+
+    setFieldError(errors);
+    if (Object.keys(errors).length === 0) {
+      createNewUser();
+      clearFields();
     }
   }
 
-  if (!modalOpen) return null
+  if (!modalOpen) return null;
 
   return (
-    <div className="modal"> 
-      <div className="sign-in">
-        <button className="close-modal" onClick={() => {
-          onClose()
-          clearMessage()
-          clearFields()
-        }}>
-          <X />
-        </button>
-        <h1>{createAccount ? 'Create Account' : 'Sign In'}</h1>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          {createAccount && (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+        <button className="close-modal" onClick={onClose}><X /></button>
+        <h1 className="modal-title">{createAccount ? 'Create Account' : 'Sign In'}</h1>
+        
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="input-container">
+            {createAccount && (
+              <>
+                <div className="input-with-icon">
+                  <PersonStanding className="input-icon" />
+                  <input 
+                    type="text" 
+                    placeholder="First Name (optional)" 
+                    value={first_name} 
+                    onChange={(e) => setFirstname(e.target.value)} 
+                  />
+                </div>
+                {fieldError.first_name && <p className="field-error">{fieldError.first_name}</p>}
+              </>
+            )}
+  
             <div className="input-with-icon">
-              <input
-                className="first-name"
-                type="text"
-                placeholder="Enter your first name (optional)"
-                value={first_name}
-                onChange={(e) => setFirstname(e.target.value)}
+              <UserRound className="input-icon" />
+              <input 
+                type="text" 
+                placeholder="Username" 
+                value={username} 
+                onChange={(e) => setUserName(e.target.value)} 
               />
-              <span className="user-icon">
-              <PersonStanding />
-            </span>
             </div>
-          )}
-          <div className="input-with-icon">
-            <input
-              className="username"
-              type="text"
-              placeholder="Enter your username"
-              required
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-            <span className="user-icon">
-              <UserRound />
-            </span>
-          </div>
-          <div className="input-with-icon">
-            <input
-              className="password"
-              type="password"
-              placeholder="Enter your password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <span className="password-icon">
-              <KeyRound />
-            </span>
-          </div>
-          {createAccount && (
+            {fieldError.username && <p className="field-error">{fieldError.username}</p>}
+  
             <div className="input-with-icon">
-            <input
-              className="password"
-              type="password"
-              placeholder="Confirm your password"
-              required
-              value={password_confirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
-            />
-            <span className="password-icon">
-              <KeyRound />
-            </span>
-          </div>
-          )}
-          {createAccount && (
-            <div className="input-with-icon">
+              <KeyRound className="input-icon" />
               <input
-                className="email"
-                type="email"
-                placeholder="example@email.com"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onFocus={() => setShowPasswordNote(true)} 
+                onBlur={() => setShowPasswordNote(false)}  
               />
-              <span className="password-icon">
-              <Mail />
-            </span>
             </div>
-          )}
-        </div>
-      <div className="messages">
-        {errorMessage && <p className="error">{errorMessage}</p>}
-        {successMessage && <p className="success">{successMessage}</p>}
+            {createAccount && showPasswordNote && (
+              <p className="password-note">
+                Password must be at least 8 characters, with 1 uppercase, 1 number, and 1 symbol
+              </p>
+            )}
+            
+            {fieldError.password && <p className="field-error">{fieldError.password}</p>}
+  
+            {createAccount && (
+              <>
+                <div className="input-with-icon">
+                  <KeyRound className="input-icon" />
+                  <input 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    value={password_confirmation} 
+                    onChange={(e) => setPasswordConfirmation(e.target.value)} 
+                  />
+                </div>
+                <div className="input-with-icon">
+                  <Mail className="input-icon" />
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                  />
+                </div>
+              </>
+            )}
+          </div>
+          <div className="messages">
+            {errorMessage && <p className="error">{errorMessage}</p>}
+            {successMessage && <p className="success">{successMessage}</p>}
+          </div>
+          <div className="button-container">
+            <button className="login-submit" type="submit">
+              {createAccount ? 'Create Account' : 'Login'}
+            </button>
+            <button 
+              className="toggle-account" 
+              type="button" 
+              onClick={() => setCreateAccount(!createAccount)}
+            >
+              {createAccount ? 'Back to Sign In' : 'Create Account'}
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="submit">
-        <button className="login-submit" type="submit">
-          {createAccount ? 'Submit' : 'Login'}
-        </button>
-        <div className="need-account">
-          <button onClick={() => {
-            setCreateAccount(!createAccount) 
-            clearMessage()
-          }}>
-            {createAccount ? 'Back to Sign In' : 'Create Account'}
-          </button>
-        </div>
-      </div>
-      </form>
     </div>
   );
+  
+  
 }
 
-export default Modal
+export default Modal;

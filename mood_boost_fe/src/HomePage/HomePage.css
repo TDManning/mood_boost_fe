@@ -1,206 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Pacifico&family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap');
+
+.animated-title {
+  font-size: clamp(3rem, 5.5vw, 5rem); 
+  font-weight: 400;
+  font-family: 'Pacifico', cursive;
+  color: #e274c8;
+  letter-spacing: 1.8px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+body, html {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top, 
+    #FFEBB2 10%,  
+    #B8E2FF 50%,  
+    #FFFFFF 100%  
+  );
+  color: #333;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+.floating-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.home-page-wrapper {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  border: 2px solid rgba(255, 128, 200, 0.5);
+  box-shadow: 
+    0px 0px 15px rgba(255, 128, 200, 0.4), 
+    0px 5px 20px rgba(0, 0, 0, 0.1);
+  padding: clamp(2.5rem, 5vw, 5rem); 
+  width: 90%;
+  max-width: 1100px;
+  min-width: 320px;
+  text-align: center;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 1;
+}
+
 .home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; 
-  text-align: center;
-  margin-top: 125px;
-  padding: 0 15rem; 
-  background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); 
-  height: calc(100vh + 100px); 
-  color: white;
-  position: relative;
-}
-
-.home-page-wrapper {
-  background: linear-gradient(0.25turn, #ffb84d, #ff9900, #ff5724, #f44034, #e92063); 
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-
-@keyframes colorCycle {
-  0% {
-    color: #ffffff;
-  }
-  25% {
-    color: #4fc3f7; 
-  }
-  50% {
-    color: #512da8; 
-  }
-  75% {
-    color: #81c784;
-  }
-  100% {
-    color: #ffffff; 
-  }
-}
-
-
-.animated-title {
-  font-size: 3.5rem;
-  color: #ffffff;
-  animation: colorCycle 10s infinite linear;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); 
+  justify-content: center; 
+  width: 100%;
 }
 
 h2 {
-  font-size: 1.8rem;
-  color: #ffdab9; 
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #444;
   margin-bottom: 1rem;
-  background: transparent;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 p {
-  font-size: 1.2rem;
-  color: #ffe5d9; 
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: #555;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-width: 80%;
 }
 
 .basic-spinner {
-  position: relative;
-  width: 200px;
-  height: 200px;
+  width: clamp(200px, 35vw, 300px); 
+  height: clamp(200px, 35vw, 300px);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  margin-top: 2rem;
-}  
-.spinner-outer {
-  position: absolute;
-  margin-top: 10rem;
-  width: 250px;
-  height: 250px;
   border-radius: 50%;
-  border: 8px solid transparent;
-  border-top: 8px solid #e94803; 
-  animation: spin 3s linear infinite; 
-  box-shadow: 0 0 40px rgb(255, 230, 0); 
-  transition: box-shadow 0.3s ease, border-top-color 0.3s ease;
+  background: radial-gradient(circle, 
+    rgba(0, 160, 216, 0.6) 25%, 
+    rgba(0, 140, 200, 0.4) 60%, 
+    rgba(0, 119, 182, 0.3) 100%  
+  );
+  box-shadow: 
+    inset 0 8px 16px rgba(255, 255, 255, 0.2), 
+    0 6px 14px rgba(0, 119, 182, 0.3); 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-top: 2rem;
+  position: relative;
 }
 
-.basic-spinner:hover .spinner-outer {
-  border-top-color: #48e774; 
-  box-shadow: 0 0 100px rgba(72, 231, 116, 1), 0 0 80px rgb(250, 159, 1);
-  transform: scale(2); 
-}  
-.spinner-text {
-  position: absolute;
-  font-size: 1.2rem;
-  color: white;
-  font-weight: bold;
-  margin: 0;
-} 
+.basic-spinner:hover {
+  transform: scale(1.2); 
+  box-shadow: 
+    0px 18px 36px rgba(255, 220, 50, 0.7), 
+    0px 8px 20px rgba(255, 160, 50, 0.4);
+}
+
+.spinner-outer {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top: 6px solid rgba(0, 160, 216, 0.8);
+  animation: spin 3s linear infinite; 
+}
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+  .home-page-wrapper {
+    width: 92%;
+    max-width: 950px;
+    margin-top: 5vh;
   }
 }
 
-.basic-spinner.active {
-  animation: multiBounce .9s ease-in-out; 
-}
-
-@keyframes multiBounce {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.3); 
-  }
-  50% {
-    transform: scale(0.8); 
-  }
-  75% {
-    transform: scale(1.1); 
-  }
-  100% {
-    transform: scale(.1); 
-  }
-} 
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Responsive Design for Tablets */
 @media (max-width: 768px) {
-  .home-page {
-    padding: 0 5rem;
-    margin-top: 100px; 
+  .home-page-wrapper {
+    width: 96%;
+    max-width: 800px;
+    margin-top: 4vh;
   }
 
   .animated-title {
-    font-size: 2.5rem; 
-  }
-
-  h2 {
-    font-size: 1.5rem; 
-  }
-
-  .basic-spinner {
-    width: 150px;
-    height: 150px; 
-  }
-
-  .spinner-outer {
-    width: 200px;
-    height: 200px; 
+    font-size: 3rem;
   }
 }
 
- /* Responsive design for a phone */
 @media (max-width: 480px) {
-  .home-page {
-    padding: 0 2rem;
-    margin-top: 80px;
+  .home-page-wrapper {
+    width: 98%;
+    max-width: 95%;
+    margin-top: 2vh;
+    padding: 2rem 1rem;
   }
 
   .animated-title {
-    font-size: 2rem; 
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 1rem; 
+    font-size: 2.5rem;
   }
 
   .basic-spinner {
-    width: 120px;
-    height: 120px;
-  }
-
-  .spinner-outer {
-    width: 150px;
-    height: 150px;
-  }
-
-  .navbar {
-    flex-direction: column; 
-    height: auto;
-    padding: 10px;
-  }
-
-  .login {
-    font-size: 1rem; 
-  }
-
-  .navbar ul li {
-    font-size: 1rem; 
+    width: 140px;
+    height: 140px;
   }
 }

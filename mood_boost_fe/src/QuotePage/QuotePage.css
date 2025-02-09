@@ -1,142 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Pacifico&family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap');
 .quote-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100vh;
-}
-
-.moving-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.quote-circles .circle.first {
-  background: rgb(255, 153, 0);
-}
-
-.quote-circles .circle.second {
-  background: rgb(255, 184, 77); 
-}
-
-.quote-circles .circle.third {
-  background: rgb(255, 87, 36); 
-}
-
-.quote-header {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0;background: linear-gradient(to top, 
+  #FFEBB2 10%,  
+  #B8E2FF 50%,  
+  #FFFFFF 100%  
+);
+  padding-top: 22vh;
+  position: relative;
   text-align: center;
-  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #quote-h1 {
-  color: #f44034;
-  width: 100%;
-  margin-top: 50px;
+  font-family: 'Pacifico', cursive;
+  font-size: 3.5rem;
+  font-weight: 200;
+  color: #004aad;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2vh;
+  padding: 0 2rem;
+  max-width: 90%;
 }
 
 #quote-description {
-  color: #ff5724;
-}
-
-.new-quote {
-  background: linear-gradient(to bottom, #ff5724, #ff9900); 
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 10px;
-  width: 200px;
-  cursor: pointer;
-  height: 60px;
-  font-weight: bold;
-  box-sizing: border-box;
-  margin-bottom: 50px;
-  margin-top: 15px;
-  z-index: 1000;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  color: #444;
+  line-height: 1.6;
+  max-width: 75%;
+  padding: 0 15px;
+  margin-bottom: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .quote-container {
+  background: radial-gradient(circle, rgba(245, 250, 255, 0.95) 0%, rgba(230, 240, 255, 0.9) 50%, rgba(220, 235, 250, 0.85) 100%);
+  width: 85%;
+  max-width: 750px;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  text-align: center;
 }
 
 #speech-bubble {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-color: #f44034;
-  color: white;
-  font-weight: bold;
-  box-shadow: 
-    -8px -8px 20px #fff9, 
-    -6px -6px 6px #fff9,
-    8px 8px 20px #0001, 
-    5px 5px 6px #0001, 
-    inset 0px 0px 0px #fff9,
-    inset 0px 0px 0px #0001, 
-    inset 0px 0px 0px #fff9,
-    inset 0px 0px 0px #0001;
-  font-size: 1.5em;
-  padding: 20px;
-  position: relative;
-  min-height: 250px;;
-  width: 70%;
-  overflow-wrap: break-word;
-}
-
-#speech-bubble:nth-child(1) {
-  position: relative;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-#speech-bubble:nth-child(1)::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -80px; 
-  bottom: 0;
-  width: 80px;
-  background: linear-gradient(to bottom, #ff5724, #ff9900); 
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-#speech-bubble:nth-child(1)::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: -30px;
-  right: 20px;
-  border-width: 30px 0 0 30px;
-  border-style: solid;
-  border-color: #f44034 transparent;
-  width: 2px;
-  border-radius: 0 0 20px 20px;
+  background: radial-gradient(circle, rgba(200, 220, 245, 0.98) 0%, rgba(215, 230, 250, 0.95) 50%, rgba(225, 240, 255, 0.9) 100%);
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 2rem;
+  width: 90%;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 #quote-author {
-  align-self: flex-end;
-  margin-top: 20px;
-  font-size: 1em;
+  display: block;
+  font-size: 1.6rem;
   font-style: italic;
+  font-weight: 500;
+  color: rgba(50, 50, 50, 0.8);
 }
 
-@media (max-width: 700px) {
-  #speech-bubble {
-    font-size: 1.2em;
-    padding: 15px;
+.new-quote {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: linear-gradient(145deg, #0077b6, #004aad);
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  width: 100%;
+  max-width: 280px;
+}
+
+.new-quote:hover {
+  background: linear-gradient(145deg, #005fa3, #003b82);
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .quote-page {
+    padding-top: 18vh;
   }
-  #quote-author {
-    font-size: .75em;
+
+  #quote-h1 {
+    font-size: 3rem;
+  }
+
+  #quote-description {
+    font-size: 1.3rem;
+    max-width: 80%;
+  }
+
+  .quote-container {
+    width: 90%;
+    padding: 1.8rem;
+  }
+
+  #speech-bubble {
+    font-size: 1.6rem;
+    padding: 1.5rem;
+  }
+
+  .new-quote {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-page {
+    padding-top: 16vh;
+  }
+
+  #quote-h1 {
+    font-size: 2.8rem;
+  }
+
+  #quote-description {
+    font-size: 1.2rem;
+    max-width: 85%;
+  }
+
+  .quote-container {
+    width: 92%;
+    padding: 1.5rem;
+  }
+
+  #speech-bubble {
+    font-size: 1.5rem;
+    padding: 1.2rem;
+  }
+
+  .new-quote {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-page {
+    padding-top: 14vh;
+  }
+
+  #quote-h1 {
+    font-size: 2.4rem;
+    padding: 0 1rem;
+  }
+
+  #quote-description {
+    font-size: 1.1rem;
+    max-width: 90%;
+    text-align: center; 
+  }
+
+  .quote-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  #speech-bubble {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+
+  .new-quote {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .quote-page {
+    padding-top: 12vh;
+  }
+
+  #quote-h1 {
+    font-size: 2.2rem;
+    padding: 0 0.8rem;
+  }
+
+  #quote-description {
+    font-size: 1rem;
+    max-width: 92%;
+    text-align: center;
+  }
+
+  .quote-container {
+    width: 96%;
+    padding: 1.2rem;
+  }
+
+  #speech-bubble {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+  }
+
+  .new-quote {
+    font-size: 0.9rem;
+    padding: 6px 12px;
   }
 }

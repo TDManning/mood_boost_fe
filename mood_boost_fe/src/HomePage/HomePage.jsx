@@ -30,21 +30,19 @@ function HomePage() {
 };
 
   return (
-    <div className="home-page-wrapper">
-      <div className="home-page">
-      <FloatingCircles />
-        <h1 className="animated-title">Welcome to Mood Boost</h1>
-        <h2>
-          Mood Boost offers simple breathing exercises, inspiring quotes, and a
-          touch of humor to brighten your day and put a smile on your face.
-        </h2>
-        <p>Click below to see a random page or use the Mood Boost dropdown menu to navigate to different pages</p>
-        <div className="basic-spinner" onClick={spinWheel}>
-          <div className="spinner-outer"></div>
-          <p className="spinner-text"></p>
-        </div>
+    <>
+    <FloatingCircles /> 
+      <div className="home-page-wrapper">
+        <div className="home-page">
+          <h1 className="animated-title">Welcome to Mood Boost</h1>
+          <h2>Your happy space for uplifting moments!</h2>
+          <p>Click below for a surprise boost</p>
+          <div className="basic-spinner" onClick={spinWheel}>
+        <div className="spinner-outer"></div>
       </div>
     </div>
+  </div>
+</>
   );
 }
 export default HomePage;
