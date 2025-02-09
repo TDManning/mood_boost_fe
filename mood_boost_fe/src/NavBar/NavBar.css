@@ -1,168 +1,252 @@
-ul {
-  list-style: none;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
+
+/* 🌟 GLOBAL STYLES */
+body, html {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #f0f4ff, #d9e4ff);
+  color: #333;
+  width: 100%;
 }
 
+/* 🌟 NAVIGATION BAR */
 .navbar-wrapper {
-  width: 100vw;
-  min-width: 100vw;
-  background: linear-gradient(
-    0.25turn,
-    #ffb84d,
-    #ff9900,
-    #ff5724,
-    #f44034,
-    #e92063
-  );
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  background: linear-gradient(145deg, #ffffff, #eef5ff);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
+  padding: 0.6rem 1rem; /* ✅ Reduced padding for a compact navbar */
 }
 
+/* ✅ Flex container for navbar */
 .navbar {
   display: flex;
-  align-items: center; 
   justify-content: space-between;
-  height: 100px;
-  width: 100%;
-  padding: 0 40px;
-  z-index: 1000;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 🌟 HOME & DROPDOWN MENU - SIDE BY SIDE */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* ✅ Ensures spacing between Home & Dropdown */
+}
+
+/* 🌟 HOME BUTTON */
+.home {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #004aad;
+  transition: color 0.3s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.home:hover {
+  color: #0077b6;
 }
 
 .homebtn {
-  height: 40px;
-  width: 40px;
-  margin-right: 30px; 
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(99%) saturate(547%) hue-rotate(180deg) brightness(90%) contrast(90%);
 }
 
+/* 🌟 NAV LINKS */
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 30px;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative; 
-  margin-left: auto;
+  gap: 1.2rem;
+  position: relative;
 }
 
+/* 🌟 MOOD BOOSTS DROPDOWN */
 .mood-boosts-title {
   display: flex;
-  align-items: center; 
-  font-size: 1.2rem; 
-  font-weight: bold;
-  color: white;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #004aad;
   cursor: pointer;
-  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  position: relative;
 }
 
-
+/* 🌟 FIXED: Dropdown now appears directly below "Mood Boosts" */
 .dropdown {
-  display: none; 
+  display: none;
   position: absolute;
   top: 100%;
-  left: 0; 
-  background-color: rgba(255, 255, 255, 0); 
-  border: 1px solid rgba(255, 255, 255, 0.3); 
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-  z-index: 2000; 
-  color: white; 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  text-align: left;
+  list-style: none; /* ✅ Removes bullet points */
 }
 
-.nav-links li:hover .dropdown {
+/* 🌟 Dropdown appears when hovering over Mood Boosts */
+.nav-links li:hover .dropdown,
+.dropdown:hover {
   display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
-.dropdown li {
-  margin: 0;
-  padding: 5px 10px;
-}
-
-.dropdown li a {
-  color: white; 
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.dropdown li a:hover {
-  color: #ffcc80; 
-}
-
-.login {
+/* 🌟 INDIVIDUAL NAV LINKS */
+.navbar_boosts {
+  padding: 0.75rem 1.2rem;
   display: flex;
-  align-items: center; 
-  gap: 10px; 
-  padding: 10px 20px;
-  background-color: transparent;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.navbar a,
-.navbar button,
-.navbar ul li {
-  color: white;
+  align-items: center;
+  justify-content: flex-start;
+  color: #333;
+  font-size: 1rem;
   text-decoration: none;
-  font-size: 1.2rem; 
+  transition: background 0.3s ease-in-out;
+  border-radius: 6px;
+  list-style: none; /* ✅ Removes bullet points */
 }
 
-.navbar a:hover,
-.navbar button:hover,
-.navbar ul li:hover {
-  color: #ffcc80;
+.navbar_boosts:hover {
+  background: #e3f2fd;
 }
 
-.page-content.blur {
-  filter: blur(8px);
-  transition: filter 0.3s ease;
+/* 🌟 LOGIN BUTTON */
+.login {
+  padding: 0.5rem 1rem;
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 10px 20px;
+/* ✅ LOGIN BUTTON HOVER */
+.login:hover {
+  background: #0077b6;
+}
+
+/* 🌟 RESPONSIVE NAVIGATION */
+
+/* ✅ For Tablets & Smaller Screens */
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    padding: 0.5rem 0.8rem; /* ✅ Makes navbar smaller */
   }
 
-  .homebtn {
-    margin-right: 20px;
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .navbar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* ✅ Keeps Home & Dropdown aligned */
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    margin-left: 0; 
+    flex-direction: row;
+    align-items: center;
   }
 
-  .login {
-    margin-top: 10px;
-    margin-left: 0;
+  .mood-boosts-title {
+    font-size: 1rem;
   }
-}
 
-@media screen and (max-width: 480px) {
-  .navbar {
+  .dropdown {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar_boosts {
+    background: white;
+    border-radius: 6px;
+    text-align: center;
     padding: 10px;
   }
 
-  .homebtn {
-    margin-right: 15px;
-  }
-
-  .nav-links {
-    gap: 10px;
-  }
-
   .login {
-    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px; /* ✅ Moves Login button below Home & Dropdown */
   }
 }
 
+/* ✅ For Mobile Screens */
+@media (max-width: 480px) {
+  .navbar-wrapper {
+    padding: 0.4rem 0.8rem; /* ✅ Navbar is now smaller */
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.3rem 0;
+    gap: 0.6rem;
+  }
+
+  .navbar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem; /* ✅ Keeps Home & Dropdown close */
+  }
+
+  .home {
+    font-size: 1rem; /* ✅ Smaller Home button text */
+    padding: 0.4rem 0.8rem;
+  }
+
+  .homebtn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mood-boosts-title {
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  .dropdown {
+    width: 180px;
+  }
+
+  .login {
+    width: 90%;
+    text-align: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.95rem;
+    margin-top: 12px; /* ✅ Moves Login button below Home & Dropdown */
+  }
+}
