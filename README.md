@@ -1,8 +1,9 @@
-# MOOD BOOST (Front End)
+# 🌟 Mood Boost 🌟
 
-Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.  You can use the application as a guest to track your activies and view a graph to see what you've accomplished.
+## Visit Mood Boost for a daily dose of joy, laughter, and positivity!  
+Experience uplifting moments through jokes, inspirational quotes, and fun interactive features.  
 
-[Mood Boost](https://mood-boost-fe.vercel.app/)
+🔗 **[Try Mood Boost Now!](https://mood-boost-fe.vercel.app/)**  
 
 ## Purpose
 The Mood Boost App is designed to enhance users' emotional well-being through engaging and interactive features and was built using a Service-Oriented Architecture (SOA) with a Rails API backend and React frontend.
@@ -16,16 +17,16 @@ The Mood Boost App is designed to enhance users' emotional well-being through en
 # Mood Boost App
 
 ## Home Page
-![Home Page](./mnt/data/Home-Page.png)
+![Home Page](Home-Page.png)
 
 ## Joke Page & Responsive Design
 <p align="center">
-  <img src="./mnt/data/Joke-Page.png" alt="Joke Page" width="45%">
-  <img src="./mnt/data/Responsive-design.png" alt="Responsive Design" width="45%">
+  <img src="Joke-Page.png" alt="Joke Page" width="45%">
+  <img src="Responsive-design.png" alt="Responsive Design" width="45%">
 </p>
 
 ## User Activity Graph
-![User Graph](./mnt/data/User-Graph.png)
+![User Graph](User-Graph.png)
 
 ## Getting Started
 Clone down the resposity to your location machine, cd into the direcotry and run: 
