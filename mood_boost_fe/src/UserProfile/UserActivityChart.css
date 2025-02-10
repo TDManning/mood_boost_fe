@@ -1,0 +1,133 @@
+body {
+  background: white !important;
+}
+
+.chart-container {
+  max-width: 100%;
+  width: 95vw;
+  margin: 150px auto 40px; 
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.graph-wrapper {
+  margin-top: 150px;
+  margin-bottom: 20px; 
+}
+
+.activity-list {
+  margin-top: 20px; 
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 15px;
+    margin: 180px auto 20px;
+  }
+
+  .graph-wrapper {
+    margin-top: 180px; 
+    margin-bottom: 10px; 
+  }
+
+  .recharts-cartesian-axis-tick {
+    font-size: 12px !important;
+  }
+
+  .activity-list {
+    padding: 10px;
+  }
+
+  .activity-list li {
+    font-size: 1rem;
+    padding: 6px;
+  }
+}
+
+.chart-container h3 {
+  font-size: 3rem;
+  font-weight: 100;
+  font-family: 'Pacifico', cursive; 
+  color: #004aad;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.recharts-cartesian-axis-tick text {
+  font-size: 14px !important;
+  font-weight: 600;
+  fill: #005f73 !important;
+  transform: translate(0, 25px); 
+}
+
+.breathing-bar {
+  fill: #0088CC !important;
+}
+
+.quote-bar {
+  fill: #00C49F !important;
+}
+
+.joke-bar {
+  fill: #FFBB28 !important;
+}
+
+.activity-list {
+  margin-top: 40px;
+  padding: 25px;
+  background: #f8f9ff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.activity-list h3 {
+  font-size: 1.6rem;
+  color: #004aad;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.activity-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.activity-list li {
+  font-size: 1.4rem;
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-list .breathing {
+  color: #0088CC;
+}
+
+.activity-list .quote {
+  color: #00C49F;
+}
+
+.activity-list .joke {
+  color: #FFBB28;
+}
+
+.activity-list li:last-child {
+  border-bottom: none;
+}
+
+.activity-list li:hover {
+  background-color: #e3f2fd;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+}
