@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import UserActivityList from "./UserActivityList";
 import UserActivityChart from "./UserActivityChart";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = process.env.REACT_APP_API_URL || "https://mood-boost-331e5d0cb48e.herokuapp.com";
 
 const UserProfile = () => {
   console.log("UserProfile is rendered");
