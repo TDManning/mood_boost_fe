@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Pacifico&family=Raleway:wght@400;700&display=swap');
 
-body, html {
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #f0f4ff, #d9e4ff);
-  color: #333;
-  width: 100%;
-}
-
 .navbar-wrapper {
   width: 100%;
   background: linear-gradient(145deg, #ffffff, #eef5ff);
@@ -17,7 +8,7 @@ body, html {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 0.6rem 1rem; 
+  padding: 0.6rem 1rem;
 }
 
 .navbar {
@@ -27,12 +18,6 @@ body, html {
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
 }
 
 .home {
@@ -48,7 +33,7 @@ body, html {
 }
 
 .home:hover {
-  color: #0077b6;
+  color: #B8E2FF ;
 }
 
 .homebtn {
@@ -61,14 +46,14 @@ body, html {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 0.8rem; 
+  gap: 0.8rem;
   position: relative;
 }
 
 .mood-boosts-title {
   display: flex;
   align-items: center;
-  gap: 0.3rem; 
+  gap: 0.3rem;
   font-size: 1.4rem;
   font-weight: 600;
   font-family: 'Pacifico', cursive;
@@ -88,7 +73,7 @@ body, html {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 0.5rem 0;
-  width: 180px; 
+  width: 180px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -122,20 +107,53 @@ body, html {
   background: #e3f2fd;
 }
 
-.login {
-  padding: 0.5rem 1rem;
-  background: #004aad;
-  color: white;
-  border: none;
-  border-radius: 8px;
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.guest-user-btn {
+  padding: 0.6rem 1.2rem;
+  background: #e6efff; /* Soft pastel blue */
+  color: #004aad; /* Deep blue text */
+  border: 2px solid #004aad; /* Matching deep blue border */
+  border-radius: 12px; /* Softer, rounded corners */
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   font-family: "Inter", sans-serif;
+  box-shadow: 2px 2px 8px rgba(0, 74, 173, 0.15); /* Soft shadow */
 }
 
-.login:hover {
-  background: #0077b6;
+.guest-user-btn:hover {
+  background: #cfe0ff; /* Slightly darker pastel blue */
+  color: #003580; /* Slightly deeper blue */
+  box-shadow: 3px 3px 10px rgba(0, 74, 173, 0.25); /* More prominent shadow */
 }
 
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .guest-user-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
