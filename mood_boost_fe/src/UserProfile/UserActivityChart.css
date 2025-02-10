@@ -1,9 +1,9 @@
-body {
+/* body {
   background: white !important;
-}
+} */
 
 .chart-container {
-  max-width: 100%;
+  max-width: 95%;
   width: 95vw;
   margin: 150px auto 40px; 
   padding: 30px;

@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import UserActivityList from "./UserActivityList";
-import UserActivityChart from "./UserActivityChart"; 
+import UserActivityChart from "./UserActivityChart";
 
-const API_BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000/api/v1"
-    : "https://mood-boost-be.onrender.com/api/v1";
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const UserProfile = () => {
   console.log("UserProfile is rendered");
@@ -71,7 +68,7 @@ const UserProfile = () => {
     <div className="userHistory">
       {activities.length > 0 ? (
         <>
-          <UserActivityChart activities={activities} /> {/* ✅ Add Chart Here */}
+          <UserActivityChart activities={activities} /> 
           <UserActivityList activities={activities} />
         </>
       ) : (
@@ -79,8 +76,6 @@ const UserProfile = () => {
       )}
     </div>
   );
-  
 };
 
 export default UserProfile;
-

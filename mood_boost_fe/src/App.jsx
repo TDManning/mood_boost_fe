@@ -8,10 +8,7 @@ import HomePage from './HomePage/HomePage';
 import UserProfile from './UserProfile/UserProfile';
 import { useState, useEffect } from 'react';
 
-const API_BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000/api/v1"
-    : "https://mood-boost-be.onrender.com/api/v1";
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [user, setUser] = useState(sessionStorage.getItem("userId") || null);
@@ -89,4 +86,3 @@ function App() {
 }
 
 export default App;
-

@@ -3,6 +3,8 @@ import './Modal.css';
 import { useState, useEffect } from 'react';
 import validator from 'validator';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL;
+
 function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
   const [createAccount, setCreateAccount] = useState(false);
   const [first_name, setFirstname] = useState('');
@@ -13,7 +15,7 @@ function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [fieldError, setFieldError] = useState({});
-  const [showPasswordNote, setShowPasswordNote] = useState(false); 
+  const [showPasswordNote, setShowPasswordNote] = useState(false);
 
   useEffect(() => {
     clearFields();
@@ -22,8 +24,8 @@ function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
 
   function createNewUser() {
     const endpoint = createAccount
-      ? 'https://mood-boost-be.onrender.com/api/v1/users'
-      : 'https://mood-boost-be.onrender.com/api/v1/sessions';
+      ? `${API_BASE_URL}/users`
+      : `${API_BASE_URL}/sessions`;
 
     const body = createAccount
       ? JSON.stringify({ user: { first_name, username, password, email, password_confirmation }})
@@ -203,8 +205,6 @@ function Modal({ modalOpen, onClose, resetToSignIn, onLoginSuccess, setUser }) {
       </div>
     </div>
   );
-  
-  
 }
 
 export default Modal;
