@@ -19,10 +19,14 @@ The Mood Boost App is designed to enhance users' emotional well-being through en
 ## Home Page
 ![Home Page](Home-Page.png)
 
-## Joke Page & Responsive Design
+## Joke Page  
 <p align="center">
   <img src="Joke-Page.png" alt="Joke Page" width="45%">
-  <img src="Responsive-design.png" alt="Responsive Design" width="45%">
+</p>
+
+## Responsive Design  
+<p align="center">
+  <img src="Responsive-design.png" alt="Responsive Design" width="30%">
 </p>
 
 ## User Activity Graph
