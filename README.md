@@ -16,12 +16,19 @@ The Mood Boost App is designed to enhance users' emotional well-being through en
 
 # Mood Boost App
 
-## Home Page
-![Home Page](Home-Page.png)
+## Home Page  
+<p align="center">
+  <img src="Home-Page.png" alt="Home Page" width="60%">
+</p>
 
 ## Joke Page  
 <p align="center">
-  <img src="Joke-Page.png" alt="Joke Page" width="45%">
+  <img src="Joke-Page.png" alt="Joke Page" width="60%">
+</p>
+
+## User Activity Graph  
+<p align="center">
+  <img src="User-Graph.png" alt="User Graph" width="60%">
 </p>
 
 ## Responsive Design  
@@ -29,8 +36,6 @@ The Mood Boost App is designed to enhance users' emotional well-being through en
   <img src="Responsive-design.png" alt="Responsive Design" width="30%">
 </p>
 
-## User Activity Graph
-![User Graph](User-Graph.png)
 
 ## Getting Started
 Clone down the resposity to your location machine, cd into the direcotry and run: 
