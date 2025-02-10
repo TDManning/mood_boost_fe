@@ -1,11 +1,8 @@
 # MOOD BOOST (Front End)
 
-![Front End Image](mood_boost_fe/src/icons/Moodboost_fe.png)
+Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.  You can use the application as a guest to track your activies and view a graph to see what you've accomplished.
 
-Mood Boost offers simple breathing exercises, inspiring quotes, and a touch of humor to brighten your day and put a smile on your face.  You can use the application as a guest or login to have it track your activity usage.
-
-### Deployed Site
-[Mood Boost](http://mood-boost-fe.onrender.com/)
+[Mood Boost](https://mood-boost-fe.vercel.app/)
 
 ## Purpose
 The Mood Boost App is designed to enhance users' emotional well-being through engaging and interactive features and was built using a Service-Oriented Architecture (SOA) with a Rails API backend and React frontend.
@@ -15,6 +12,20 @@ The Mood Boost App is designed to enhance users' emotional well-being through en
 - Emphasize Team Collaboration: Foster teamwork, project management, and decision-making skills in a multi-app system.
 - Enhance Professional Readiness: Provide hands-on experience with SOA, external APIs, and deployment, preparing developers for industry challenges.
 - Prioritize User Empathy: Create an inclusive, user-centered design by developing detailed user stories and conducting equity analyses.
+
+# Mood Boost App
+
+## Home Page
+![Home Page](Home-Page.png)
+
+## Joke Page
+![Joke Page](Joke-Page.png)
+
+## User Activity Graph
+![User Graph](User-Graph.png)
+
+## Responsive Design
+![Responsive Design](Responsive-design.png)
 
 ## Getting Started
 Clone down the resposity to your location machine, cd into the direcotry and run: 
